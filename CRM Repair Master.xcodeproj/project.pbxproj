@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		FA119EA4221A00860062BFFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA119EA3221A00860062BFFE /* AppDelegate.swift */; };
-		FA119EA6221A00860062BFFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA119EA5221A00860062BFFE /* ViewController.swift */; };
+		FA119EA6221A00860062BFFE /* VCMyClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA119EA5221A00860062BFFE /* VCMyClients.swift */; };
 		FA119EA9221A00860062BFFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA119EA7221A00860062BFFE /* Main.storyboard */; };
 		FA119EAB221A00890062BFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA119EAA221A00890062BFFE /* Assets.xcassets */; };
 		FA119EAE221A00890062BFFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA119EAC221A00890062BFFE /* LaunchScreen.storyboard */; };
+		FA97416C222296FF0089D5A6 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97416B222296FF0089D5A6 /* Client.swift */; };
+		FA97416E2222983B0089D5A6 /* AllClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97416D2222983B0089D5A6 /* AllClients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA119EA0221A00860062BFFE /* CRM Repair Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CRM Repair Master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA119EA3221A00860062BFFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA119EA5221A00860062BFFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA119EA5221A00860062BFFE /* VCMyClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMyClients.swift; sourceTree = "<group>"; };
 		FA119EA8221A00860062BFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA119EAA221A00890062BFFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA119EAD221A00890062BFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA119EAF221A00890062BFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA97416B222296FF0089D5A6 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		FA97416D2222983B0089D5A6 /* AllClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,40 @@
 		FA119EA2221A00860062BFFE /* CRM Repair Master */ = {
 			isa = PBXGroup;
 			children = (
+				FA974168222296840089D5A6 /* View */,
+				FA9741672222966A0089D5A6 /* VC */,
+				FA974166222296570089D5A6 /* Model */,
 				FA119EA3221A00860062BFFE /* AppDelegate.swift */,
-				FA119EA5221A00860062BFFE /* ViewController.swift */,
 				FA119EA7221A00860062BFFE /* Main.storyboard */,
 				FA119EAA221A00890062BFFE /* Assets.xcassets */,
 				FA119EAC221A00890062BFFE /* LaunchScreen.storyboard */,
 				FA119EAF221A00890062BFFE /* Info.plist */,
 			);
 			path = "CRM Repair Master";
+			sourceTree = "<group>";
+		};
+		FA974166222296570089D5A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA97416B222296FF0089D5A6 /* Client.swift */,
+				FA97416D2222983B0089D5A6 /* AllClients.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA9741672222966A0089D5A6 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				FA119EA5221A00860062BFFE /* VCMyClients.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		FA974168222296840089D5A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA119EA6221A00860062BFFE /* ViewController.swift in Sources */,
+				FA119EA6221A00860062BFFE /* VCMyClients.swift in Sources */,
 				FA119EA4221A00860062BFFE /* AppDelegate.swift in Sources */,
+				FA97416E2222983B0089D5A6 /* AllClients.swift in Sources */,
+				FA97416C222296FF0089D5A6 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
