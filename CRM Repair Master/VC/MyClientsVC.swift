@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VCMyClients: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,6 +25,8 @@ class VCMyClients: UIViewController, UITableViewDataSource, UITableViewDelegate 
         print(allClients[0].phonenumber)
         
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +40,19 @@ class VCMyClients: UIViewController, UITableViewDataSource, UITableViewDelegate 
         cell.detailTextLabel?.text = objectToDisplay.phonenumber
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let client = allClients[indexPath.item]
+        performSegue(withIdentifier: "showDetailOfClient", sender: client)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsVC = segue.destination as? DetailsOfClientVC {
+            if let senderClient = sender as? Client {
+                detailsVC.clientDetail = senderClient
+            }
+        }
     }
     
 }
