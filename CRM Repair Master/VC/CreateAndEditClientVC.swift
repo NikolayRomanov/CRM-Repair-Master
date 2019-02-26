@@ -9,12 +9,10 @@
 import UIKit
 
 class CreateAndEditClientVC: UIViewController {
-
+    
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldSecondName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
-    
-    var clientEdit : Client!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +21,7 @@ class CreateAndEditClientVC: UIViewController {
     }
     
     @IBAction func createClient(_ sender: Any) {
-        if clientEdit == nil {
-            creatNewClient()
-        }
-        
+        creatNewClient()
         dismiss(animated: true, completion: { })
     }
     

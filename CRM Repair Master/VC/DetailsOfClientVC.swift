@@ -11,18 +11,23 @@ import UIKit
 class DetailsOfClientVC: UIViewController {
     
     var clientDetail = Client.init()
-    
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelSecondName: UILabel!
-    @IBOutlet weak var labelPhoneNumber: UILabel!
+    @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var textFieldSecondName: UITextField!
+    @IBOutlet weak var textFieldPhoneNumber: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        labelName.text = clientDetail.name
-        labelSecondName.text = clientDetail.secondName
-        labelPhoneNumber.text = clientDetail.phonenumber
+        textFieldName.text = clientDetail.name
+        textFieldSecondName.text = clientDetail.secondName
+        textFieldPhoneNumber.text = clientDetail.phonenumber
     }
-
+    
+    @IBAction func saveClient(_ sender: Any) {
+        clientDetail.name = textFieldName.text ?? clientDetail.name
+        clientDetail.secondName = textFieldSecondName.text ?? clientDetail.secondName
+        clientDetail.phonenumber = textFieldPhoneNumber.text ?? clientDetail.phonenumber
+    }
+    
 }

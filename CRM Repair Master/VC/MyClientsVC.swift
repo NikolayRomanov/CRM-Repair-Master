@@ -28,6 +28,10 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         tableView.delegate = self
         tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allClients.count
@@ -48,9 +52,11 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let detailsVC = segue.destination as? DetailsOfClientVC {
-            if let senderClient = sender as? Client {
-                detailsVC.clientDetail = senderClient
+        if segue.identifier == "showDetailOfClient" {
+            if let detailsVC = segue.destination as? DetailsOfClientVC {
+                if let senderClient = sender as? Client {
+                    detailsVC.clientDetail = senderClient
+                }
             }
         }
     }
