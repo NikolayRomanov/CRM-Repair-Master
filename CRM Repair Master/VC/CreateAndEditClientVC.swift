@@ -18,6 +18,9 @@ class CreateAndEditClientVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        textFieldName.delegate = self
+        textFieldSecondName.delegate = self
+        textFieldPhoneNumber.delegate = self
     }
     
     @IBAction func createClient(_ sender: Any) {
@@ -37,4 +40,19 @@ class CreateAndEditClientVC: UIViewController {
         allClients.append(newClient)
     }
 
+}
+
+extension CreateAndEditClientVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textFieldName {
+            textFieldSecondName.becomeFirstResponder()
+        }
+        if textField == textFieldSecondName {
+            textFieldPhoneNumber.becomeFirstResponder()
+        }
+        if textField == textFieldPhoneNumber {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 }

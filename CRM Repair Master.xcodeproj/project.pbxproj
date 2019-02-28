@@ -16,6 +16,9 @@
 		FA97416E2222983B0089D5A6 /* AllClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97416D2222983B0089D5A6 /* AllClients.swift */; };
 		FA9741722222EB4F0089D5A6 /* CreateAndEditClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */; };
 		FA9741742222F7010089D5A6 /* DetailsOfClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */; };
+		FACCC0372226F37D00B1B020 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC0362226F37D00B1B020 /* MyOrderVC.swift */; };
+		FACCC0392226F4A500B1B020 /* DetailsOfOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC0382226F4A500B1B020 /* DetailsOfOrderVC.swift */; };
+		FACCC03B2226F57C00B1B020 /* CreateNewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		FA97416D2222983B0089D5A6 /* AllClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClients.swift; sourceTree = "<group>"; };
 		FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndEditClientVC.swift; sourceTree = "<group>"; };
 		FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOfClientVC.swift; sourceTree = "<group>"; };
+		FACCC0362226F37D00B1B020 /* MyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
+		FACCC0382226F4A500B1B020 /* DetailsOfOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOfOrderVC.swift; sourceTree = "<group>"; };
+		FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewOrderVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 		FA9741672222966A0089D5A6 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				FACCC0362226F37D00B1B020 /* MyOrderVC.swift */,
+				FACCC0382226F4A500B1B020 /* DetailsOfOrderVC.swift */,
+				FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */,
 				FA119EA5221A00860062BFFE /* MyClientsVC.swift */,
 				FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */,
 				FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */,
@@ -172,9 +181,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9741722222EB4F0089D5A6 /* CreateAndEditClientVC.swift in Sources */,
+				FACCC0392226F4A500B1B020 /* DetailsOfOrderVC.swift in Sources */,
 				FA119EA6221A00860062BFFE /* MyClientsVC.swift in Sources */,
+				FACCC03B2226F57C00B1B020 /* CreateNewOrderVC.swift in Sources */,
 				FA119EA4221A00860062BFFE /* AppDelegate.swift in Sources */,
 				FA9741742222F7010089D5A6 /* DetailsOfClientVC.swift in Sources */,
+				FACCC0372226F37D00B1B020 /* MyOrderVC.swift in Sources */,
 				FA97416E2222983B0089D5A6 /* AllClients.swift in Sources */,
 				FA97416C222296FF0089D5A6 /* Client.swift in Sources */,
 			);

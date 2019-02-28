@@ -22,6 +22,10 @@ class DetailsOfClientVC: UIViewController {
         textFieldName.text = clientDetail.name
         textFieldSecondName.text = clientDetail.secondName
         textFieldPhoneNumber.text = clientDetail.phonenumber
+        
+        textFieldName.delegate = self
+        textFieldSecondName.delegate = self
+        textFieldPhoneNumber.delegate = self
     }
     
     @IBAction func saveClient(_ sender: Any) {
@@ -30,4 +34,22 @@ class DetailsOfClientVC: UIViewController {
         clientDetail.phonenumber = textFieldPhoneNumber.text ?? clientDetail.phonenumber
     }
     
+    @IBAction func buttonDissmis(_ sender: Any) {
+        dismiss(animated: true, completion: { })
+    }
+}
+
+extension DetailsOfClientVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textFieldName {
+            textFieldSecondName.becomeFirstResponder()
+        }
+        if textField == textFieldSecondName {
+            textFieldPhoneNumber.becomeFirstResponder()
+        }
+        if textField == textFieldPhoneNumber {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 }
