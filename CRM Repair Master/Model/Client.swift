@@ -9,9 +9,12 @@
 import Foundation
 import Parse
 
-class Client {
-    var name = ""
-    var secondName = ""
-    var phonenumber = ""
-} 
+let classNameClient = "Client"
+let nameClient = "name"
+let phoneNumberClient = "phoneNumber"
+
+var objectClients = [PFObject]()
+
+
+
 

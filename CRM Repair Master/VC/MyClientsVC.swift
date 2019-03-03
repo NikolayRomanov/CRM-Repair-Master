@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -15,46 +16,54 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let client = Client.init()
-        client.name = "Niklay"
-        client.secondName = "Ronanov"
-        client.phonenumber = "0684564804"
-        allClients.append(client)
-        print(allClients[0].name)
-        print(allClients[0].secondName)
-        print(allClients[0].phonenumber)
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        super.viewWillAppear(animated)
+        reloadData()
+    }
+    
+    private func reloadData() {
+        let query = PFQuery.init(className: classNameClient)
+        query.findObjectsInBackground { (optionalObjects, error) in
+            if let realObjects = optionalObjects {
+                objectClients = realObjects
+                print("print objectClients",objectClients)
+                self.tableView.reloadData()
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allClients.count
+        return objectClients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellClinet", for: indexPath)
-        let objectToDisplay = allClients[indexPath.row]
-        cell.textLabel?.text = objectToDisplay.name + " " + objectToDisplay.secondName
-        cell.detailTextLabel?.text = objectToDisplay.phonenumber
+        let objectToDisplay = objectClients[indexPath.row]
+        cell.textLabel?.text = objectToDisplay[nameClient] as? String
+        cell.detailTextLabel?.text = objectToDisplay[phoneNumberClient] as? String
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let client = allClients[indexPath.item]
+        let client = objectClients[indexPath.item]
         performSegue(withIdentifier: "showDetailOfClient", sender: client)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailOfClient" {
             if let detailsVC = segue.destination as? DetailsOfClientVC {
-                if let senderClient = sender as? Client {
+                if let senderClient = sender as? PFObject {
                     detailsVC.clientDetail = senderClient
                 }
             }

@@ -14,7 +14,6 @@
 		FA119EAB221A00890062BFFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA119EAA221A00890062BFFE /* Assets.xcassets */; };
 		FA119EAE221A00890062BFFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA119EAC221A00890062BFFE /* LaunchScreen.storyboard */; };
 		FA97416C222296FF0089D5A6 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97416B222296FF0089D5A6 /* Client.swift */; };
-		FA97416E2222983B0089D5A6 /* AllClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97416D2222983B0089D5A6 /* AllClients.swift */; };
 		FA9741722222EB4F0089D5A6 /* CreateAndEditClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */; };
 		FA9741742222F7010089D5A6 /* DetailsOfClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */; };
 		FACCC0372226F37D00B1B020 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC0362226F37D00B1B020 /* MyOrderVC.swift */; };
@@ -34,7 +33,6 @@
 		FA119EAD221A00890062BFFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA119EAF221A00890062BFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA97416B222296FF0089D5A6 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		FA97416D2222983B0089D5A6 /* AllClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClients.swift; sourceTree = "<group>"; };
 		FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndEditClientVC.swift; sourceTree = "<group>"; };
 		FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOfClientVC.swift; sourceTree = "<group>"; };
 		FACCC0362226F37D00B1B020 /* MyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				102FA1EBE847F35DB55D8D75 /* Pods-CRM Repair Master.debug.xcconfig */,
 				89F1053A63515F58F4F9FFFD /* Pods-CRM Repair Master.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -109,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				FA97416B222296FF0089D5A6 /* Client.swift */,
-				FA97416D2222983B0089D5A6 /* AllClients.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,7 +259,6 @@
 				FA119EA4221A00860062BFFE /* AppDelegate.swift in Sources */,
 				FA9741742222F7010089D5A6 /* DetailsOfClientVC.swift in Sources */,
 				FACCC0372226F37D00B1B020 /* MyOrderVC.swift in Sources */,
-				FA97416E2222983B0089D5A6 /* AllClients.swift in Sources */,
 				FA97416C222296FF0089D5A6 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

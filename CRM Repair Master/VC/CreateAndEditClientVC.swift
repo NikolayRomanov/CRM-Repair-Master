@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class CreateAndEditClientVC: UIViewController {
     
     @IBOutlet weak var textFieldName: UITextField!
-    @IBOutlet weak var textFieldSecondName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
 
     override func viewDidLoad() {
@@ -19,7 +19,6 @@ class CreateAndEditClientVC: UIViewController {
 
         // Do any additional setup after loading the view.
         textFieldName.delegate = self
-        textFieldSecondName.delegate = self
         textFieldPhoneNumber.delegate = self
     }
     
@@ -33,11 +32,10 @@ class CreateAndEditClientVC: UIViewController {
     }
     
     func creatNewClient() {
-        let newClient = Client.init()
-        newClient.name = textFieldName.text ?? ""
-        newClient.secondName = textFieldSecondName.text ?? ""
-        newClient.phonenumber = textFieldPhoneNumber.text ?? ""
-        allClients.append(newClient)
+        let newClient = PFObject.init(className: classNameClient)
+        newClient[nameClient] = textFieldName.text
+        newClient[phoneNumberClient] = textFieldPhoneNumber.text
+        newClient.saveInBackground()
     }
 
 }
@@ -45,9 +43,6 @@ class CreateAndEditClientVC: UIViewController {
 extension CreateAndEditClientVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == textFieldName {
-            textFieldSecondName.becomeFirstResponder()
-        }
-        if textField == textFieldSecondName {
             textFieldPhoneNumber.becomeFirstResponder()
         }
         if textField == textFieldPhoneNumber {

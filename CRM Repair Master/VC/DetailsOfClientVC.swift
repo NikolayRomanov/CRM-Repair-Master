@@ -7,31 +7,29 @@
 //
 
 import UIKit
+import Parse
 
 class DetailsOfClientVC: UIViewController {
     
-    var clientDetail = Client.init()
+    var clientDetail : PFObject!
     @IBOutlet weak var textFieldName: UITextField!
-    @IBOutlet weak var textFieldSecondName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        textFieldName.text = clientDetail.name
-        textFieldSecondName.text = clientDetail.secondName
-        textFieldPhoneNumber.text = clientDetail.phonenumber
+        textFieldName.text = clientDetail[nameClient] as? String
+        textFieldPhoneNumber.text = clientDetail[phoneNumberClient] as? String
         
         textFieldName.delegate = self
-        textFieldSecondName.delegate = self
         textFieldPhoneNumber.delegate = self
     }
     
     @IBAction func saveClient(_ sender: Any) {
-        clientDetail.name = textFieldName.text ?? clientDetail.name
-        clientDetail.secondName = textFieldSecondName.text ?? clientDetail.secondName
-        clientDetail.phonenumber = textFieldPhoneNumber.text ?? clientDetail.phonenumber
+        clientDetail[nameClient] = textFieldName.text ?? clientDetail[nameClient]
+        clientDetail[phoneNumberClient] = textFieldPhoneNumber.text ?? clientDetail[phoneNumberClient]
+        clientDetail.saveInBackground()
     }
     
     @IBAction func buttonDissmis(_ sender: Any) {
@@ -42,9 +40,6 @@ class DetailsOfClientVC: UIViewController {
 extension DetailsOfClientVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == textFieldName {
-            textFieldSecondName.becomeFirstResponder()
-        }
-        if textField == textFieldSecondName {
             textFieldPhoneNumber.becomeFirstResponder()
         }
         if textField == textFieldPhoneNumber {
