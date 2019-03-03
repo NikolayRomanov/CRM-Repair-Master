@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BCAD4324F4A2F5FF24A5C24 /* Pods_CRM_Repair_Master.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2946C14750A10576C8F9B261 /* Pods_CRM_Repair_Master.framework */; };
 		FA119EA4221A00860062BFFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA119EA3221A00860062BFFE /* AppDelegate.swift */; };
 		FA119EA6221A00860062BFFE /* MyClientsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA119EA5221A00860062BFFE /* MyClientsVC.swift */; };
 		FA119EA9221A00860062BFFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA119EA7221A00860062BFFE /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		102FA1EBE847F35DB55D8D75 /* Pods-CRM Repair Master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRM Repair Master.debug.xcconfig"; path = "Target Support Files/Pods-CRM Repair Master/Pods-CRM Repair Master.debug.xcconfig"; sourceTree = "<group>"; };
+		2946C14750A10576C8F9B261 /* Pods_CRM_Repair_Master.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRM_Repair_Master.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F1053A63515F58F4F9FFFD /* Pods-CRM Repair Master.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRM Repair Master.release.xcconfig"; path = "Target Support Files/Pods-CRM Repair Master/Pods-CRM Repair Master.release.xcconfig"; sourceTree = "<group>"; };
 		FA119EA0221A00860062BFFE /* CRM Repair Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CRM Repair Master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA119EA3221A00860062BFFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA119EA5221A00860062BFFE /* MyClientsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClientsVC.swift; sourceTree = "<group>"; };
@@ -43,17 +47,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BCAD4324F4A2F5FF24A5C24 /* Pods_CRM_Repair_Master.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22855D503C9EF25C937943D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2946C14750A10576C8F9B261 /* Pods_CRM_Repair_Master.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		324D55919CBBA253A895B319 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				102FA1EBE847F35DB55D8D75 /* Pods-CRM Repair Master.debug.xcconfig */,
+				89F1053A63515F58F4F9FFFD /* Pods-CRM Repair Master.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FA119E97221A00860062BFFE = {
 			isa = PBXGroup;
 			children = (
 				FA119EA2221A00860062BFFE /* CRM Repair Master */,
 				FA119EA1221A00860062BFFE /* Products */,
+				324D55919CBBA253A895B319 /* Pods */,
+				22855D503C9EF25C937943D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA119EB2221A00890062BFFE /* Build configuration list for PBXNativeTarget "CRM Repair Master" */;
 			buildPhases = (
+				DA9B243A0A0851C55B7703E3 /* [CP] Check Pods Manifest.lock */,
 				FA119E9C221A00860062BFFE /* Sources */,
 				FA119E9D221A00860062BFFE /* Frameworks */,
 				FA119E9E221A00860062BFFE /* Resources */,
+				3C38CB5857A1DD8BDE6DB115 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,6 +201,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C38CB5857A1DD8BDE6DB115 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CRM Repair Master/Pods-CRM Repair Master-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CRM Repair Master/Pods-CRM Repair Master-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA9B243A0A0851C55B7703E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CRM Repair Master-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA119E9C221A00860062BFFE /* Sources */ = {
@@ -332,6 +408,7 @@
 		};
 		FA119EB3221A00890062BFFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 102FA1EBE847F35DB55D8D75 /* Pods-CRM Repair Master.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -350,6 +427,7 @@
 		};
 		FA119EB4221A00890062BFFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89F1053A63515F58F4F9FFFD /* Pods-CRM Repair Master.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Parse
 
 class Client {
     var name = ""
     var secondName = ""
     var phonenumber = ""
-}
+} 
+
