@@ -13,7 +13,7 @@
         <!--CRM-->
         <scene sceneID="Ruo-xZ-S4n">
             <objects>
-                <tableViewController id="pGF-eO-6A8" sceneMemberID="viewController">
+                <tableViewController id="pGF-eO-6A8" customClass="MainVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ksV-MX-2Xz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,6 +297,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5H-5u-Jty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2210.625" y="-339.08450704225351"/>
+        </scene>
+        <!--LogIn-->
+        <scene sceneID="gV6-aE-BIx">
+            <objects>
+                <viewController title="LogIn" id="jzN-X2-ggN" customClass="LogInVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9AP-AU-Lj0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Qx2-HW-K5d"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vZS-On-NXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1534" y="-339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Piw-xB-pUE">

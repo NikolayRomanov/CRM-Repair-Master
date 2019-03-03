@@ -35,7 +35,15 @@ class CreateAndEditClientVC: UIViewController {
         let newClient = PFObject.init(className: classNameClient)
         newClient[nameClient] = textFieldName.text
         newClient[phoneNumberClient] = textFieldPhoneNumber.text
-        newClient.saveInBackground()
+        newClient[myClient] = PFUser.current()
+        newClient.saveInBackground { (success, error) in
+            
+            guard let user = PFUser.current(), success else {
+                return
+            }
+            user.relation(forKey: relationForKeyClients).add(newClient)
+            user.saveInBackground()
+        }
     }
 
 }
