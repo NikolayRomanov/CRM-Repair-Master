@@ -37,7 +37,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 objectClients = realObjects
-                print("print objectClients",objectClients)
+               // print("print objectClients",objectClients)
                 self.tableView.reloadData()
             }
         }

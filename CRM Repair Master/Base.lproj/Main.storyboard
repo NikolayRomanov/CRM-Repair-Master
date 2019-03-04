@@ -123,12 +123,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i9e-IS-7fB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellOrder" textLabel="gRA-Wp-KlZ" style="IBUITableViewCellStyleDefault" id="i9e-IS-7fB">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i9e-IS-7fB" id="5Xj-ad-vSf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gRA-Wp-KlZ">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -137,8 +146,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0xz-fY-UHN"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Orders" id="WLJ-d9-bWv"/>
+                    <navigationItem key="navigationItem" title="My Orders" id="NTe-GF-vr6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Sf-Em-4La">
+                            <connections>
+                                <segue destination="G81-97-SYc" kind="presentation" id="2tR-ub-6wr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="tableViewOrders" destination="srz-si-Ar0" id="J23-fg-pHe"/>
                         <segue destination="sAe-k2-OXv" kind="show" id="fSi-aq-YrJ"/>
                     </connections>
                 </viewController>
@@ -163,6 +179,22 @@
             <point key="canvasLocation" x="2211" y="-1231"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="G4r-05-WRz">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72r-ap-BBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="bUF-tf-4PP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3M5-uG-Ejl">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="b9x-zD-pzU" kind="relationship" relationship="rootViewController" id="rN5-x0-al9"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2979" y="-1232"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="Inp-Em-mBl">
             <objects>
                 <navigationController id="G81-97-SYc" sceneMemberID="viewController">
@@ -181,18 +213,50 @@
         <!--Create new Order-->
         <scene sceneID="cVV-9b-CPy">
             <objects>
-                <viewController id="SX7-Kn-6Z3" sceneMemberID="viewController">
+                <viewController id="SX7-Kn-6Z3" customClass="CreateNewOrderVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ODV-J4-PNG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name client" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1P-fm-0LW">
+                                <rect key="frame" x="48" y="97" width="224" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GD6-oa-mMq">
+                                <rect key="frame" x="127" y="141" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="addClient"/>
+                                <connections>
+                                    <action selector="buttonAddClient:" destination="SX7-Kn-6Z3" eventType="touchUpInside" id="nKt-CF-KKS"/>
+                                    <segue destination="bUF-tf-4PP" kind="presentation" id="ndO-rs-aKf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ezj-uR-A7h"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create new Order" id="UUb-WD-5jt"/>
+                    <navigationItem key="navigationItem" title="Create new Order" id="i0u-pb-AAu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5vb-z3-Di5">
+                            <connections>
+                                <action selector="leftBarButtonCancel:" destination="SX7-Kn-6Z3" id="JDS-lh-2kz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="f3e-4q-Vzs">
+                            <connections>
+                                <action selector="rightBarButtonDone:" destination="SX7-Kn-6Z3" id="Nwx-TQ-9lF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="labelNameClient" destination="N1P-fm-0LW" id="SQQ-Xc-dCQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9y-ve-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2211" y="-2006"/>
+            <point key="canvasLocation" x="2210.625" y="-2007.0422535211269"/>
         </scene>
         <!--My Clients-->
         <scene sceneID="Za6-pD-dqA">
@@ -278,6 +342,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pic-M0-vnX">
+                                <rect key="frame" x="99" y="357" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="AddClientToOrder"/>
+                                <connections>
+                                    <action selector="buttonAddClientToOrder:" destination="dOh-Wf-V64" eventType="touchUpInside" id="xxS-D2-lXx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xrX-GB-47d"/>
@@ -297,21 +369,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5H-5u-Jty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2210.625" y="-339.08450704225351"/>
-        </scene>
-        <!--LogIn-->
-        <scene sceneID="gV6-aE-BIx">
-            <objects>
-                <viewController title="LogIn" id="jzN-X2-ggN" customClass="LogInVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9AP-AU-Lj0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Qx2-HW-K5d"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vZS-On-NXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1534" y="-339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Piw-xB-pUE">
@@ -413,4 +470,7 @@
             <point key="canvasLocation" x="-506" y="-339"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rN5-x0-al9"/>
+    </inferredMetricsTieBreakers>
 </document>

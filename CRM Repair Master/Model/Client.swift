@@ -12,6 +12,7 @@ import Parse
 let classNameClient = "Client"
 let nameClient = "name"
 let phoneNumberClient = "phoneNumber"
+let objectIdClassClient = "objectId"
 
 // for data output PFUser.current()
 let myClient = "MyClient"

@@ -21,7 +21,7 @@ class DetailsOfClientVC: UIViewController {
         // Do any additional setup after loading the view.
         textFieldName.text = clientDetail[nameClient] as? String
         textFieldPhoneNumber.text = clientDetail[phoneNumberClient] as? String
-        
+
         textFieldName.delegate = self
         textFieldPhoneNumber.delegate = self
     }
@@ -32,8 +32,11 @@ class DetailsOfClientVC: UIViewController {
         clientDetail.saveInBackground()
     }
     
-    @IBAction func buttonDissmis(_ sender: Any) {
-        dismiss(animated: true, completion: { })
+    @IBAction func buttonAddClientToOrder(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(clientDetail[objectIdClassClient], forKey: "addClientToOrder")
+        print("clientDetail[objectIdClassClient]", clientDetail[objectIdClassClient])
+        dismiss(animated: true, completion: nil)
     }
 }
 
