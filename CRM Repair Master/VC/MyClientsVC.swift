@@ -32,6 +32,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     private func reloadData() {
+        
         let query = PFQuery.init(className: classNameClient)
         query.whereKeyExists(myClient)
         query.findObjectsInBackground { (optionalObjects, error) in

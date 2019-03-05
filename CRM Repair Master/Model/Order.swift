@@ -11,5 +11,6 @@ import Parse
 
 let classNameOrder = "Order"
 let orderClassNameClient = "nameClient"
+var globalClient : PFObject!
 
 var objectOrders = [PFObject]()

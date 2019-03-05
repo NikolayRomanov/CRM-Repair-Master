@@ -33,9 +33,11 @@ class DetailsOfClientVC: UIViewController {
     }
     
     @IBAction func buttonAddClientToOrder(_ sender: Any) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(clientDetail[objectIdClassClient], forKey: "addClientToOrder")
-        print("clientDetail[objectIdClassClient]", clientDetail[objectIdClassClient])
+        /*let userDefaults = UserDefaults.standard
+        userDefaults.set(clientDetail.objectId, forKey: "addClientToOrder")
+        print("clientDetail[objectIdClassClient]", clientDetail.objectId!)*/
+        globalClient = clientDetail
+        //print("globalClient", globalClient)
         dismiss(animated: true, completion: nil)
     }
 }
