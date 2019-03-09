@@ -19,16 +19,16 @@ class DetailsOfClientVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        textFieldName.text = clientDetail[nameClient] as? String
-        textFieldPhoneNumber.text = clientDetail[phoneNumberClient] as? String
+        textFieldName.text = clientDetail[Client.nameClient.rawValue] as? String
+        textFieldPhoneNumber.text = clientDetail[Client.phoneNumberClient.rawValue] as? String
 
         textFieldName.delegate = self
         textFieldPhoneNumber.delegate = self
     }
     
     @IBAction func saveClient(_ sender: Any) {
-        clientDetail[nameClient] = textFieldName.text ?? clientDetail[nameClient]
-        clientDetail[phoneNumberClient] = textFieldPhoneNumber.text ?? clientDetail[phoneNumberClient]
+        clientDetail[Client.nameClient.rawValue] = textFieldName.text ?? clientDetail[Client.nameClient.rawValue]
+        clientDetail[Client.phoneNumberClient.rawValue] = textFieldPhoneNumber.text ?? clientDetail[Client.phoneNumberClient.rawValue]
         clientDetail.saveInBackground()
     }
     

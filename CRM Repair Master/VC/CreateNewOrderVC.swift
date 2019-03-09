@@ -27,24 +27,25 @@ class CreateNewOrderVC: UIViewController {
     }
     
     func addClient() {
-        if let clientAdd = globalClient {
+        if let client = globalClient {
+            clientAdd = client
             globalClient = nil
-            labelNameClient.text = clientAdd[nameClient] as? String
+            labelNameClient.text = clientAdd[Client.nameClient.rawValue] as? String
         }
         else {return}
     }
     
     func creatNewOrder() {
-        let newOrder = PFObject.init(className: classNameOrder)
-        
-        newOrder[nameClientOrder] = labelNameClient.text
-        newOrder[myOrder] = PFUser.current()
+        let newOrder = PFObject.init(className: Order.classNameOrder.rawValue)
+        newOrder[Order.clientInOrder.rawValue] = clientAdd
+        newOrder[Order.nameClientOrder.rawValue] = clientAdd[Client.nameClient.rawValue]
+        newOrder[Order.myOrder.rawValue] = PFUser.current()
         newOrder.saveInBackground { (success, error) in
             
             guard let user = PFUser.current(), success else {
                 return
             }
-            user.relation(forKey: relationForKeyOrders).add(newOrder)
+            user.relation(forKey: Order.relationForKeyOrders.rawValue).add(newOrder)
             user.saveInBackground()
         }
     }

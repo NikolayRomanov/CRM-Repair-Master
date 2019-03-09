@@ -9,14 +9,23 @@
 import Foundation
 import Parse
 
-let classNameClient = "Client"
-let nameClient = "name"
-let phoneNumberClient = "phoneNumber"
-let objectIdClassClient = "objectId"
+enum Client: String {
+    case classNameClient = "Client"
+    case nameClient = "name"
+    case phoneNumberClient = "phoneNumber"
+    
+    // for data output PFUser.current()
+    case myClient = "MyClient"
+    case relationForKeyClients = "clients"
+}
+
+//let classNameClient = "Client"
+//let nameClient = "name"
+//let phoneNumberClient = "phoneNumber"
 
 // for data output PFUser.current()
-let myClient = "MyClient"
-let relationForKeyClients = "clients"
+//let myClient = "MyClient"
+//let relationForKeyClients = "clients"
 
 var objectClients = [PFObject]()
 

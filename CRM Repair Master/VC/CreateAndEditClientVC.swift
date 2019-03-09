@@ -32,16 +32,16 @@ class CreateAndEditClientVC: UIViewController {
     }
     
     func creatNewClient() {
-        let newClient = PFObject.init(className: classNameClient)
-        newClient[nameClient] = textFieldName.text
-        newClient[phoneNumberClient] = textFieldPhoneNumber.text
-        newClient[myClient] = PFUser.current()
+        let newClient = PFObject.init(className: Client.classNameClient.rawValue)
+        newClient[Client.nameClient.rawValue] = textFieldName.text
+        newClient[Client.phoneNumberClient.rawValue] = textFieldPhoneNumber.text
+        newClient[Client.myClient.rawValue] = PFUser.current()
         newClient.saveInBackground { (success, error) in
             
             guard let user = PFUser.current(), success else {
                 return
             }
-            user.relation(forKey: relationForKeyClients).add(newClient)
+            user.relation(forKey: Client.relationForKeyClients.rawValue).add(newClient)
             user.saveInBackground()
         }
     }

@@ -9,13 +9,20 @@
 import Foundation
 import Parse
 
-let classNameOrder = "Order"
-let orderClassNameClient = "nameClient"
-let nameClientOrder = "nameClient"
+enum Order: String {
+    case classNameOrder = "Order"
+    case clientInOrder = "clientInOrder"
+    case nameClientOrder = "nameClient"
+    
+    // for data output PFUser.current()
+    case myOrder = "MyOrder"
+    case relationForKeyOrders = "orders"
+}
+
 var globalClient : PFObject!
 
 // for data output PFUser.current()
-let myOrder = "MyOrder"
-let relationForKeyOrders = "orders"
+//let myOrder = "MyOrder"
+//let relationForKeyOrders = "orders"
 
 var objectOrders = [PFObject]()

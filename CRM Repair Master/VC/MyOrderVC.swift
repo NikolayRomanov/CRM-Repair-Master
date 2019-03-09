@@ -27,8 +27,8 @@ class MyOrderVC: UIViewController {
     }
     
     private func reloadData() {
-        let query = PFQuery.init(className: classNameOrder)
-        query.whereKeyExists(myOrder)
+        let query = PFQuery.init(className: Order.classNameOrder.rawValue)
+        query.whereKeyExists(Order.myOrder.rawValue)
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 objectOrders = realObjects
@@ -47,9 +47,12 @@ extension MyOrderVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOrders.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath)
-        let objectToDisplay = objectOrders[indexPath.row]
-        cell.textLabel?.text = objectToDisplay[orderClassNameClient] as? String
-        
+        let object = objectOrders[indexPath.row]
+        let post = object[Order.clientInOrder.rawValue] as! PFObject
+        post.fetchIfNeededInBackground { (post: PFObject?, error: Error?) in
+            let nameClientObject = post?[Client.nameClient.rawValue] as? String
+            cell.textLabel?.text = nameClientObject
+        }        
         return cell
     }
 }

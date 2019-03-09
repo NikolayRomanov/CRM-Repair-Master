@@ -33,8 +33,8 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     private func reloadData() {
         
-        let query = PFQuery.init(className: classNameClient)
-        query.whereKeyExists(myClient)
+        let query = PFQuery.init(className: Client.classNameClient.rawValue)
+        query.whereKeyExists(Client.myClient.rawValue)
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 objectClients = realObjects
@@ -51,8 +51,8 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellClinet", for: indexPath)
         let objectToDisplay = objectClients[indexPath.row]
-        cell.textLabel?.text = objectToDisplay[nameClient] as? String
-        cell.detailTextLabel?.text = objectToDisplay[phoneNumberClient] as? String
+        cell.textLabel?.text = objectToDisplay[Client.nameClient.rawValue] as? String
+        cell.detailTextLabel?.text = objectToDisplay[Client.phoneNumberClient.rawValue] as? String
         
         return cell
     }
