@@ -11,6 +11,11 @@ import Parse
 
 let classNameOrder = "Order"
 let orderClassNameClient = "nameClient"
+let nameClientOrder = "nameClient"
 var globalClient : PFObject!
+
+// for data output PFUser.current()
+let myOrder = "MyOrder"
+let relationForKeyOrders = "orders"
 
 var objectOrders = [PFObject]()

@@ -181,7 +181,6 @@
         <!--Navigation Controller-->
         <scene sceneID="G4r-05-WRz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="72r-ap-BBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="bUF-tf-4PP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3M5-uG-Ejl">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -191,6 +190,7 @@
                         <segue destination="b9x-zD-pzU" kind="relationship" relationship="rootViewController" id="rN5-x0-al9"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72r-ap-BBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2979" y="-1232"/>
         </scene>
@@ -471,6 +471,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rN5-x0-al9"/>
+        <segue reference="TgQ-PF-oen"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,7 @@ import Parse
 
 class CreateNewOrderVC: UIViewController {
     
-    //var clientAdd : PFObject!
+    var clientAdd : PFObject!
     
     @IBOutlet weak var labelNameClient: UILabel!
     
@@ -27,23 +27,30 @@ class CreateNewOrderVC: UIViewController {
     }
     
     func addClient() {
-        /*let userDefaults = UserDefaults.standard
-        if let objectId = userDefaults.string(forKey: "addClientToOrder") {
-            print("objectId", objectId)
-            labelNameClient.text = objectId
-        }
-        else {
-            print("addClient() in else")
-            return
-        }*/
         if let clientAdd = globalClient {
-            print("globalClient", globalClient)
+            globalClient = nil
             labelNameClient.text = clientAdd[nameClient] as? String
         }
         else {return}
     }
+    
+    func creatNewOrder() {
+        let newOrder = PFObject.init(className: classNameOrder)
+        
+        newOrder[nameClientOrder] = labelNameClient.text
+        newOrder[myOrder] = PFUser.current()
+        newOrder.saveInBackground { (success, error) in
+            
+            guard let user = PFUser.current(), success else {
+                return
+            }
+            user.relation(forKey: relationForKeyOrders).add(newOrder)
+            user.saveInBackground()
+        }
+    }
 
     @IBAction func rightBarButtonDone(_ sender: Any) {
+        creatNewOrder()
         dismiss(animated: true, completion: nil)
     }
     

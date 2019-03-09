@@ -13,6 +13,7 @@ class MyOrderVC: UIViewController {
 
     @IBOutlet weak var tableViewOrders: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +28,7 @@ class MyOrderVC: UIViewController {
     
     private func reloadData() {
         let query = PFQuery.init(className: classNameOrder)
-        //query.whereKeyExists(myClient)
+        query.whereKeyExists(myOrder)
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 objectOrders = realObjects
