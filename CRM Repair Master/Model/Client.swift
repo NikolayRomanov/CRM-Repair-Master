@@ -19,14 +19,6 @@ enum Client: String {
     case relationForKeyClients = "clients"
 }
 
-//let classNameClient = "Client"
-//let nameClient = "name"
-//let phoneNumberClient = "phoneNumber"
-
-// for data output PFUser.current()
-//let myClient = "MyClient"
-//let relationForKeyClients = "clients"
-
 var objectClients = [PFObject]()
 
 

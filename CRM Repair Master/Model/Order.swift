@@ -21,8 +21,4 @@ enum Order: String {
 
 var globalClient : PFObject!
 
-// for data output PFUser.current()
-//let myOrder = "MyOrder"
-//let relationForKeyOrders = "orders"
-
 var objectOrders = [PFObject]()

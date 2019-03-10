@@ -178,16 +178,16 @@
             </objects>
             <point key="canvasLocation" x="2211" y="-1231"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavigationAddClienToOrder-->
         <scene sceneID="G4r-05-WRz">
             <objects>
-                <navigationController id="bUF-tf-4PP" sceneMemberID="viewController">
+                <navigationController title="NavigationAddClienToOrder" id="bUF-tf-4PP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3M5-uG-Ejl">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="b9x-zD-pzU" kind="relationship" relationship="rootViewController" id="rN5-x0-al9"/>
+                        <segue destination="b9x-zD-pzU" kind="relationship" relationship="rootViewController" id="jmy-Op-xep"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72r-ap-BBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +231,6 @@
                                 <state key="normal" title="addClient"/>
                                 <connections>
                                     <action selector="buttonAddClient:" destination="SX7-Kn-6Z3" eventType="touchUpInside" id="nKt-CF-KKS"/>
-                                    <segue destination="bUF-tf-4PP" kind="presentation" id="ndO-rs-aKf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -252,11 +251,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="labelNameClient" destination="N1P-fm-0LW" id="SQQ-Xc-dCQ"/>
+                        <segue destination="bUF-tf-4PP" kind="presentation" identifier="addClientToOrder" id="3n6-1J-wXJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9y-ve-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2210.625" y="-2007.0422535211269"/>
+            <point key="canvasLocation" x="2211" y="-2006"/>
         </scene>
         <!--My Clients-->
         <scene sceneID="Za6-pD-dqA">
@@ -471,6 +471,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TgQ-PF-oen"/>
+        <segue reference="jmy-Op-xep"/>
     </inferredMetricsTieBreakers>
 </document>

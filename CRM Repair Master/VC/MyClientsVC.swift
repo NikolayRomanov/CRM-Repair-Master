@@ -10,6 +10,8 @@ import UIKit
 import Parse
 
 class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var identifierVCaddClient : Bool!
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,6 +31,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadData()
+        print("identifierVCaddClient", identifierVCaddClient)
     }
     
     private func reloadData() {
@@ -69,6 +72,15 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
                     detailsVC.clientDetail = senderClient
                 }
             }
+        }
+    }
+    
+    func addTitleVC() {
+        if identifierVCaddClient {
+            
+        }
+        else {
+            return
         }
     }
     

@@ -60,6 +60,20 @@ class CreateNewOrderVC: UIViewController {
     }
     
     @IBAction func buttonAddClient(_ sender: Any) {
+        let addClientVC = true
+        performSegue(withIdentifier: "addClientToOrder", sender: addClientVC)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addClientToOrder" {
+            if let myClientsVC = (segue.destination as? UINavigationController)?.topViewController as? MyClientsVC {
+                if let senderAddClientVC = sender as? Bool {
+                    print("senderAddClientVC", senderAddClientVC)
+                    myClientsVC.identifierVCaddClient = senderAddClientVC
+                }
+            }
+        }
+    }
+    
 }
 
