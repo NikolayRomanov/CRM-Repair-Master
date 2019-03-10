@@ -312,6 +312,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="navigationItemMyClients" destination="wiY-sh-Xgw" id="6BY-ga-cEi"/>
                         <outlet property="tableView" destination="cf4-ij-k75" id="gDR-De-Puw"/>
                         <segue destination="dOh-Wf-V64" kind="show" identifier="showDetailOfClient" id="ZgM-wC-nKP"/>
                     </connections>
@@ -362,6 +363,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonOutletAddClientToOrder" destination="pic-M0-vnX" id="WBr-9e-srX"/>
                         <outlet property="textFieldName" destination="k7L-an-YDP" id="EeB-Wz-Ri7"/>
                         <outlet property="textFieldPhoneNumber" destination="e0L-ik-XH4" id="NrO-1a-XPg"/>
                     </connections>

@@ -11,13 +11,15 @@ import Parse
 
 class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var identifierVCaddClient : Bool!
+    var identifierVCaddClient = false
 
+    @IBOutlet weak var navigationItemMyClients: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        addTitleVC()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -70,6 +72,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             if let detailsVC = segue.destination as? DetailsOfClientVC {
                 if let senderClient = sender as? PFObject {
                     detailsVC.clientDetail = senderClient
+                    detailsVC.visibleButtonAddClientToOrder = identifierVCaddClient
                 }
             }
         }
@@ -77,11 +80,20 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func addTitleVC() {
         if identifierVCaddClient {
-            
+            navigationItemMyClients.title = "Add Client to order"
+                let cancelButton = UIBarButtonItem(title: "Cancel",
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(cancelDismiss))
+                navigationItemMyClients.leftBarButtonItem = cancelButton
         }
         else {
             return
         }
+    }
+    
+    @objc func cancelDismiss() {
+        dismiss(animated: true, completion: nil)
     }
     
 }

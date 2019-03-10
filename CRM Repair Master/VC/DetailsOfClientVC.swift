@@ -11,7 +11,9 @@ import Parse
 
 class DetailsOfClientVC: UIViewController {
     
+    var visibleButtonAddClientToOrder = false
     var clientDetail : PFObject!
+    @IBOutlet weak var buttonOutletAddClientToOrder: UIButton!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     
@@ -21,7 +23,10 @@ class DetailsOfClientVC: UIViewController {
         // Do any additional setup after loading the view.
         textFieldName.text = clientDetail[Client.nameClient.rawValue] as? String
         textFieldPhoneNumber.text = clientDetail[Client.phoneNumberClient.rawValue] as? String
-
+        
+        buttonOutletAddClientToOrder.isHidden = true
+        visibleButtonAddClient()
+        print("visibleButtonAddClientToOrder",visibleButtonAddClientToOrder)
         textFieldName.delegate = self
         textFieldPhoneNumber.delegate = self
     }
@@ -35,6 +40,15 @@ class DetailsOfClientVC: UIViewController {
     @IBAction func buttonAddClientToOrder(_ sender: Any) {
         globalClient = clientDetail
         dismiss(animated: true, completion: nil)
+    }
+    
+    func visibleButtonAddClient() {
+        if visibleButtonAddClientToOrder {
+            buttonOutletAddClientToOrder.isHidden = false
+        }
+        else {
+            return
+        }
     }
 }
 

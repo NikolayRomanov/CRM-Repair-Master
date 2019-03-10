@@ -68,7 +68,6 @@ class CreateNewOrderVC: UIViewController {
         if segue.identifier == "addClientToOrder" {
             if let myClientsVC = (segue.destination as? UINavigationController)?.topViewController as? MyClientsVC {
                 if let senderAddClientVC = sender as? Bool {
-                    print("senderAddClientVC", senderAddClientVC)
                     myClientsVC.identifierVCaddClient = senderAddClientVC
                 }
             }
