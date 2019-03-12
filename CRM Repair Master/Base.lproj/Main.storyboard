@@ -94,6 +94,9 @@
                                                 <constraint firstItem="OjN-E1-qnZ" firstAttribute="centerY" secondItem="95y-37-QzV" secondAttribute="centerY" id="qT4-Si-m9b"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="mNR-bw-eAD" kind="show" identifier="showMyServices" id="GbC-NX-Dyc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -233,6 +236,14 @@
                                     <action selector="buttonAddClient:" destination="SX7-Kn-6Z3" eventType="touchUpInside" id="nKt-CF-KKS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJF-hC-mxP">
+                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonAddServices:" destination="SX7-Kn-6Z3" eventType="touchUpInside" id="J74-Qg-kKJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ezj-uR-A7h"/>
@@ -252,6 +263,7 @@
                     <connections>
                         <outlet property="labelNameClient" destination="N1P-fm-0LW" id="SQQ-Xc-dCQ"/>
                         <segue destination="bUF-tf-4PP" kind="presentation" identifier="addClientToOrder" id="3n6-1J-wXJ"/>
+                        <segue destination="mNR-bw-eAD" kind="presentation" identifier="presentAddServices" id="2Nc-TX-hzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9y-ve-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -388,6 +400,21 @@
             </objects>
             <point key="canvasLocation" x="1367" y="481"/>
         </scene>
+        <!--My ServicesVC-->
+        <scene sceneID="cEh-mp-OXH">
+            <objects>
+                <viewController id="mNR-bw-eAD" customClass="MyServicesVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="47m-j4-ACe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cdm-0o-0CI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RBX-QJ-FVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1387" y="1224"/>
+        </scene>
         <!--Create new Client-->
         <scene sceneID="72e-e7-eks">
             <objects>
@@ -473,6 +500,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jmy-Op-xep"/>
+        <segue reference="2Nc-TX-hzN"/>
+        <segue reference="TgQ-PF-oen"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -64,11 +64,24 @@ class CreateNewOrderVC: UIViewController {
         performSegue(withIdentifier: "addClientToOrder", sender: addClientVC)
     }
     
+    @IBAction func buttonAddServices(_ sender: Any) {
+        let addServicesVC = true
+        performSegue(withIdentifier: "presentAddServices", sender: addServicesVC)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addClientToOrder" {
             if let myClientsVC = (segue.destination as? UINavigationController)?.topViewController as? MyClientsVC {
                 if let senderAddClientVC = sender as? Bool {
                     myClientsVC.identifierVCaddClient = senderAddClientVC
+                }
+            }
+        }
+        
+        if segue.identifier == "presentAddServices" {
+            if let myServicesVC = segue.destination as? MyServicesVC {
+                if let senderAddServiceVC = sender as? Bool {
+                    myServicesVC.addServices = senderAddServiceVC
                 }
             }
         }
