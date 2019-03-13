@@ -22,6 +22,7 @@
 		FACCC0392226F4A500B1B020 /* DetailsOfOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC0382226F4A500B1B020 /* DetailsOfOrderVC.swift */; };
 		FACCC03B2226F57C00B1B020 /* CreateNewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */; };
 		FAFD9A8B223839E9003C2C7E /* MyServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9A8A223839E9003C2C7E /* MyServicesVC.swift */; };
+		FAFD9A8D2239595D003C2C7E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9A8C2239595D003C2C7E /* Services.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FACCC0382226F4A500B1B020 /* DetailsOfOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOfOrderVC.swift; sourceTree = "<group>"; };
 		FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewOrderVC.swift; sourceTree = "<group>"; };
 		FAFD9A8A223839E9003C2C7E /* MyServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyServicesVC.swift; path = "/Users/macbook/Desktop/Developer/WebAcademy/CRM Repair Master/CRM Repair Master/VC/MyServicesVC.swift"; sourceTree = "<absolute>"; };
+		FAFD9A8C2239595D003C2C7E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				FA270BE9222DAC74000E77C8 /* Order.swift */,
 				FA97416B222296FF0089D5A6 /* Client.swift */,
+				FAFD9A8C2239595D003C2C7E /* Services.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9741722222EB4F0089D5A6 /* CreateAndEditClientVC.swift in Sources */,
+				FAFD9A8D2239595D003C2C7E /* Services.swift in Sources */,
 				FA270BE8222C6991000E77C8 /* MainVC.swift in Sources */,
 				FA270BEA222DAC74000E77C8 /* Order.swift in Sources */,
 				FACCC0392226F4A500B1B020 /* DetailsOfOrderVC.swift in Sources */,

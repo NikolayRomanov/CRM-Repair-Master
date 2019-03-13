@@ -21,4 +21,4 @@ enum Order: String {
 
 var globalClient : PFObject!
 
-var objectOrders = [PFObject]()
+

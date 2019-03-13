@@ -19,7 +19,7 @@ enum Client: String {
     case relationForKeyClients = "clients"
 }
 
-var objectClients = [PFObject]()
+
 
 
 

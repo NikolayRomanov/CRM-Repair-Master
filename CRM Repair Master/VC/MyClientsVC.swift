@@ -12,6 +12,7 @@ import Parse
 class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var identifierVCaddClient = false
+    var objectClients = [PFObject]()
 
     @IBOutlet weak var navigationItemMyClients: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
@@ -42,7 +43,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         query.whereKeyExists(Client.myClient.rawValue)
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
-                objectClients = realObjects
+                self.objectClients = realObjects
                // print("print objectClients",objectClients)
                 self.tableView.reloadData()
             }

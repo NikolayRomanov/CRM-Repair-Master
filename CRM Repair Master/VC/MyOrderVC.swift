@@ -11,8 +11,9 @@ import Parse
 
 class MyOrderVC: UIViewController {
 
-    @IBOutlet weak var tableViewOrders: UITableView!
+    var objectOrders = [PFObject]()
     
+    @IBOutlet weak var tableViewOrders: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class MyOrderVC: UIViewController {
         query.whereKeyExists(Order.myOrder.rawValue)
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
-                objectOrders = realObjects
+                self.objectOrders = realObjects
                 //print("print objectClients",objectOrders)
                 self.tableViewOrders.reloadData()
             }
