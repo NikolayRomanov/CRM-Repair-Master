@@ -18,7 +18,7 @@ class MyServicesVC: UIViewController {
         super.viewDidLoad()
         
         tableViewMyServices.dataSource = self
-        //tableViewMyServices.delegate = self
+        tableViewMyServices.delegate = self
 
         // Do any additional setup after loading the view.
         print("addServices", addServices)
@@ -69,5 +69,8 @@ extension MyServicesVC: UITableViewDataSource {
 }
 
 extension MyServicesVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let service = objectServices[indexPath.item]
+        performSegue(withIdentifier: "showDetailsOfService", sender: service)
+    }
 }

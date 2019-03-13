@@ -453,6 +453,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableViewMyServices" destination="p7f-7v-kgb" id="Ozj-ql-uld"/>
+                        <segue destination="Zzx-8g-8st" kind="show" identifier="showDetailsOfService" id="3vE-6d-0PW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBX-QJ-FVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,6 +543,22 @@
             </objects>
             <point key="canvasLocation" x="1386" y="1988"/>
         </scene>
+        <!--Details of Services-->
+        <scene sceneID="XBz-z8-XmX">
+            <objects>
+                <viewController id="Zzx-8g-8st" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CFm-qp-Hx8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Klt-As-pIc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details of Services" id="EhA-If-DOV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKE-u9-g9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2211" y="1223"/>
+        </scene>
         <!--Create new Service-->
         <scene sceneID="C4O-0H-DWi">
             <objects>
@@ -601,7 +618,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4P-ZX-HyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2377.5" y="1986.9718309859154"/>
+            <point key="canvasLocation" x="2211" y="1987"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AyV-be-EI0">
