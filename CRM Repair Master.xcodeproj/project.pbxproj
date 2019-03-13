@@ -23,6 +23,7 @@
 		FACCC03B2226F57C00B1B020 /* CreateNewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */; };
 		FAFD9A8B223839E9003C2C7E /* MyServicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9A8A223839E9003C2C7E /* MyServicesVC.swift */; };
 		FAFD9A8D2239595D003C2C7E /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9A8C2239595D003C2C7E /* Services.swift */; };
+		FAFD9A8F2239861F003C2C7E /* CreateNewServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD9A8E2239861E003C2C7E /* CreateNewServiceVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FACCC03A2226F57C00B1B020 /* CreateNewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewOrderVC.swift; sourceTree = "<group>"; };
 		FAFD9A8A223839E9003C2C7E /* MyServicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyServicesVC.swift; path = "/Users/macbook/Desktop/Developer/WebAcademy/CRM Repair Master/CRM Repair Master/VC/MyServicesVC.swift"; sourceTree = "<absolute>"; };
 		FAFD9A8C2239595D003C2C7E /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		FAFD9A8E2239861E003C2C7E /* CreateNewServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewServiceVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */,
 				FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */,
 				FAFD9A8A223839E9003C2C7E /* MyServicesVC.swift */,
+				FAFD9A8E2239861E003C2C7E /* CreateNewServiceVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				FA9741722222EB4F0089D5A6 /* CreateAndEditClientVC.swift in Sources */,
 				FAFD9A8D2239595D003C2C7E /* Services.swift in Sources */,
+				FAFD9A8F2239861F003C2C7E /* CreateNewServiceVC.swift in Sources */,
 				FA270BE8222C6991000E77C8 /* MainVC.swift in Sources */,
 				FA270BEA222DAC74000E77C8 /* Order.swift in Sources */,
 				FACCC0392226F4A500B1B020 /* DetailsOfOrderVC.swift in Sources */,

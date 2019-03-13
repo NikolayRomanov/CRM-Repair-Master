@@ -13,6 +13,7 @@ class DetailsOfClientVC: UIViewController {
     
     var visibleButtonAddClientToOrder = false
     var clientDetail : PFObject!
+    
     @IBOutlet weak var buttonOutletAddClientToOrder: UIButton!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!

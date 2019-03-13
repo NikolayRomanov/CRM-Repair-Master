@@ -25,14 +25,24 @@ class MyServicesVC: UIViewController {
         reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadData()
+    }
+    
     private func reloadData() {
         
         let query = PFQuery.init(className: Services.classNameServices.rawValue)
-        //query.whereKeyExists(Services.myServices.rawValue)
+        query.whereKeyExists(Services.myServices.rawValue)
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 self.objectServices = realObjects
-                // print("print objectClients",objectClients)
+                print("print objectClients", self.objectServices)
                 self.tableViewMyServices.reloadData()
             }
         }
@@ -56,5 +66,8 @@ extension MyServicesVC: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension MyServicesVC: UITableViewDelegate {
     
 }

@@ -34,7 +34,6 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadData()
-        print("identifierVCaddClient", identifierVCaddClient)
     }
     
     private func reloadData() {

@@ -447,6 +447,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3zc-AP-IOY">
                             <connections>
                                 <action selector="buttonAddNewServices:" destination="mNR-bw-eAD" id="1Mp-5y-Sq2"/>
+                                <segue destination="tfn-s3-jJf" kind="presentation" id="iYY-D2-JQT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -524,6 +525,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dh7-Fc-aWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2211" y="481"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EVN-No-8rm">
+            <objects>
+                <navigationController id="tfn-s3-jJf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ecg-fP-Yhl">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ioK-iX-UuB" kind="relationship" relationship="rootViewController" id="VwI-v4-7cu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eES-fd-8EF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="1988"/>
+        </scene>
+        <!--Create new Service-->
+        <scene sceneID="C4O-0H-DWi">
+            <objects>
+                <viewController id="ioK-iX-UuB" customClass="CreateNewServiceVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="62H-5H-FOg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qq-ti-Le7">
+                                <rect key="frame" x="49" y="162" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw4-4Y-ekv">
+                                <rect key="frame" x="139" y="107" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cy-gf-man">
+                                <rect key="frame" x="139" y="230" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="84i-cG-oOA">
+                                <rect key="frame" x="130" y="269" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YcH-pG-PMp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create new Service" id="RLH-C7-thl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eky-lt-47n">
+                            <connections>
+                                <action selector="cancleClient:" destination="ioK-iX-UuB" id="b4P-Qw-tqK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="7eF-NM-Fps">
+                            <connections>
+                                <action selector="createClient:" destination="ioK-iX-UuB" id="wjV-YD-9u8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textFieldNameService" destination="7qq-ti-Le7" id="QCa-1K-pYF"/>
+                        <outlet property="textFieldPriceService" destination="84i-cG-oOA" id="5lx-im-ZA3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s4P-ZX-HyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377.5" y="1986.9718309859154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AyV-be-EI0">
