@@ -12,6 +12,8 @@ class MyServicesVC: UIViewController {
     
     var addServices = false
     var objectServices = [PFObject]()
+    
+    @IBOutlet weak var navigationItems: UINavigationItem!
     @IBOutlet weak var tableViewMyServices: UITableView!
     
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class MyServicesVC: UIViewController {
         // Do any additional setup after loading the view.
         print("addServices", addServices)
         reloadData()
+        addTitleVC()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,13 +45,31 @@ class MyServicesVC: UIViewController {
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 self.objectServices = realObjects
-                print("print objectClients", self.objectServices)
+                //print("print objectClients", self.objectServices)
                 self.tableViewMyServices.reloadData()
             }
         }
     }
 
     @IBAction func buttonAddNewServices(_ sender: Any) {
+    }
+    
+    func addTitleVC() {
+        if addServices {
+            navigationItems.title = "Add Service to order"
+            let cancelButton = UIBarButtonItem(title: "Cancel",
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(cancelDismiss))
+            navigationItems.leftBarButtonItem = cancelButton
+        }
+        else {
+            return
+        }
+    }
+    
+    @objc func cancelDismiss() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -73,4 +94,16 @@ extension MyServicesVC: UITableViewDelegate {
         let service = objectServices[indexPath.item]
         performSegue(withIdentifier: "showDetailsOfService", sender: service)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailsOfService" {
+            if let detailsVC = segue.destination as? DetailsOfServiceVC {
+                if let senderService = sender as? PFObject {
+                    detailsVC.objectService = senderService
+                    detailsVC.visibleButtonAddServiceToOrder = addServices
+                }
+            }
+        }
+    }
+    
 }

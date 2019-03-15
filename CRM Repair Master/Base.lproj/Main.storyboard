@@ -263,7 +263,7 @@
                     <connections>
                         <outlet property="labelNameClient" destination="N1P-fm-0LW" id="SQQ-Xc-dCQ"/>
                         <segue destination="bUF-tf-4PP" kind="presentation" identifier="addClientToOrder" id="3n6-1J-wXJ"/>
-                        <segue destination="mNR-bw-eAD" kind="presentation" identifier="presentAddServices" id="2Nc-TX-hzN"/>
+                        <segue destination="8SG-HN-CaP" kind="presentation" identifier="presentAddServices" id="r1C-ei-pdq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9y-ve-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -468,6 +468,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navigationItems" destination="lt0-D1-9Dl" id="XMu-bO-Hy3"/>
                         <outlet property="tableViewMyServices" destination="p7f-7v-kgb" id="Ozj-ql-uld"/>
                         <segue destination="Zzx-8g-8st" kind="show" identifier="showDetailsOfService" id="3vE-6d-0PW"/>
                     </connections>
@@ -592,7 +593,7 @@
         <!--Details of Services-->
         <scene sceneID="XBz-z8-XmX">
             <objects>
-                <viewController id="Zzx-8g-8st" sceneMemberID="viewController">
+                <viewController id="Zzx-8g-8st" customClass="DetailsOfServiceVC" customModule="CRM_Repair_Master" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CFm-qp-Hx8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -604,6 +605,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKE-u9-g9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2211" y="1223"/>
+        </scene>
+        <!--NavigationAddServices-->
+        <scene sceneID="Mj9-Q0-Ngv">
+            <objects>
+                <navigationController title="NavigationAddServices" id="8SG-HN-CaP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3sg-rC-wXz">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mNR-bw-eAD" kind="relationship" relationship="rootViewController" id="2Va-r1-zkc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPj-AL-d0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="379" y="1223"/>
         </scene>
         <!--Create new Service-->
         <scene sceneID="C4O-0H-DWi">
@@ -684,7 +701,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GbC-NX-Dyc"/>
-        <segue reference="TgQ-PF-oen"/>
+        <segue reference="2Va-r1-zkc"/>
+        <segue reference="jmy-Op-xep"/>
     </inferredMetricsTieBreakers>
 </document>

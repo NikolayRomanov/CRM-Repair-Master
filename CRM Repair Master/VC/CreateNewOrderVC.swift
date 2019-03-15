@@ -79,7 +79,7 @@ class CreateNewOrderVC: UIViewController {
         }
         
         if segue.identifier == "presentAddServices" {
-            if let myServicesVC = segue.destination as? MyServicesVC {
+            if let myServicesVC = (segue.destination as? UINavigationController)?.topViewController as? MyServicesVC {
                 if let senderAddServiceVC = sender as? Bool {
                     myServicesVC.addServices = senderAddServiceVC
                 }
