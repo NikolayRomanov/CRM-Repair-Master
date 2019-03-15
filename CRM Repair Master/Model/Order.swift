@@ -20,5 +20,6 @@ enum Order: String {
 }
 
 var globalClient : PFObject!
+var globalService : PFObject!
 
 

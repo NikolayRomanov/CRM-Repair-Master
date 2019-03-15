@@ -24,16 +24,20 @@ class DetailsOfClientVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        textFieldName.text = clientDetail[Client.nameClient.rawValue] as? String
-        textFieldPhoneNumber.text = clientDetail[Client.phoneNumberClient.rawValue] as? String
-        textFieldEmail.text = clientDetail[Client.email.rawValue] as? String
-        textFieldAddress.text = clientDetail[Client.address.rawValue] as? String
+        dataDisplayVC()
         
         buttonOutletAddClientToOrder.isHidden = true
         visibleButtonAddClient()
         print("visibleButtonAddClientToOrder",visibleButtonAddClientToOrder)
         textFieldName.delegate = self
         textFieldPhoneNumber.delegate = self
+    }
+    
+    func dataDisplayVC() {
+        textFieldName.text = clientDetail[Client.nameClient.rawValue] as? String
+        textFieldPhoneNumber.text = clientDetail[Client.phoneNumberClient.rawValue] as? String
+        textFieldEmail.text = clientDetail[Client.email.rawValue] as? String
+        textFieldAddress.text = clientDetail[Client.address.rawValue] as? String
     }
     
     @IBAction func saveClient(_ sender: Any) {

@@ -597,14 +597,49 @@
                     <view key="view" contentMode="scaleToFill" id="CFm-qp-Hx8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPn-si-4jM">
+                                <rect key="frame" x="112" y="185" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAe-gG-E6s">
+                                <rect key="frame" x="87" y="269" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Service To Order"/>
+                                <connections>
+                                    <action selector="buttonAddServiceToOrder:" destination="Zzx-8g-8st" eventType="touchUpInside" id="cZe-0s-sCD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2wQ-h6-SP1">
+                                <rect key="frame" x="46" y="106" width="229" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Klt-As-pIc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Details of Services" id="EhA-If-DOV"/>
+                    <navigationItem key="navigationItem" title="Details of Services" id="EhA-If-DOV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uwP-de-gwZ">
+                            <connections>
+                                <action selector="buttonRBarItemSave:" destination="Zzx-8g-8st" id="g53-Dk-hQW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonAddServiceToOrder" destination="gAe-gG-E6s" id="JCY-Fd-XcX"/>
+                        <outlet property="textFieldName" destination="2wQ-h6-SP1" id="O5i-C7-Tkw"/>
+                        <outlet property="textFieldPrice" destination="bPn-si-4jM" id="ENy-13-WRI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKE-u9-g9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2211" y="1223"/>
+            <point key="canvasLocation" x="2210.625" y="1222.1830985915492"/>
         </scene>
         <!--NavigationAddServices-->
         <scene sceneID="Mj9-Q0-Ngv">

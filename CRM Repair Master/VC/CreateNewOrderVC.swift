@@ -12,6 +12,7 @@ import Parse
 class CreateNewOrderVC: UIViewController {
     
     var clientAdd : PFObject!
+    var serviceAdd : PFObject!
     
     @IBOutlet weak var labelNameClient: UILabel!
     
@@ -19,11 +20,14 @@ class CreateNewOrderVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("serviceAdd", serviceAdd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addClient()
+        addService()
+        print("serviceAdd", serviceAdd)
     }
     
     func addClient() {
@@ -31,6 +35,14 @@ class CreateNewOrderVC: UIViewController {
             clientAdd = client
             globalClient = nil
             labelNameClient.text = clientAdd[Client.nameClient.rawValue] as? String
+        }
+        else {return}
+    }
+    
+    func addService() {
+        if let service = globalService {
+            serviceAdd = service
+            globalService = nil
         }
         else {return}
     }
