@@ -95,7 +95,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="mNR-bw-eAD" kind="show" identifier="showMyServices" id="GbC-NX-Dyc"/>
+                                            <segue destination="mNR-bw-eAD" kind="show" identifier="" id="GbC-NX-Dyc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -354,8 +354,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-nH-eeg">
+                                <rect key="frame" x="16" y="309" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XS-OW-gcN">
+                                <rect key="frame" x="16" y="403" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pic-M0-vnX">
-                                <rect key="frame" x="99" y="357" width="123" height="30"/>
+                                <rect key="frame" x="99" y="476" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="AddClientToOrder"/>
                                 <connections>
@@ -375,6 +389,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonOutletAddClientToOrder" destination="pic-M0-vnX" id="WBr-9e-srX"/>
+                        <outlet property="textFieldAddress" destination="9XS-OW-gcN" id="Lsj-EI-T1T"/>
+                        <outlet property="textFieldEmail" destination="3IE-nH-eeg" id="Rxc-rU-cfQ"/>
                         <outlet property="textFieldName" destination="k7L-an-YDP" id="EeB-Wz-Ri7"/>
                         <outlet property="textFieldPhoneNumber" destination="e0L-ik-XH4" id="NrO-1a-XPg"/>
                     </connections>
@@ -498,7 +514,35 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email@adress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGJ-4z-hZ0">
+                                <rect key="frame" x="107" y="327" width="107" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtC-MZ-ux1">
+                                <rect key="frame" x="16" y="356" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bck-Kb-AgL">
+                                <rect key="frame" x="138" y="431" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Mg-TB-4e7">
+                                <rect key="frame" x="16" y="460" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -517,15 +561,17 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="textFieldAddress" destination="2Mg-TB-4e7" id="fTz-lm-Eku"/>
+                        <outlet property="textFieldEmail" destination="TtC-MZ-ux1" id="z4o-Yd-8ie"/>
                         <outlet property="textFieldName" destination="1T7-iG-GQi" id="hhE-6C-un9"/>
                         <outlet property="textFieldPhoneNumber" destination="UPk-0n-K9l" id="L8o-Qf-qSK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dh7-Fc-aWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2211" y="481"/>
+            <point key="canvasLocation" x="2210.625" y="480.63380281690144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EVN-No-8rm">
@@ -638,7 +684,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Nc-TX-hzN"/>
+        <segue reference="GbC-NX-Dyc"/>
         <segue reference="TgQ-PF-oen"/>
     </inferredMetricsTieBreakers>
 </document>

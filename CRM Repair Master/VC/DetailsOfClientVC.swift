@@ -17,6 +17,8 @@ class DetailsOfClientVC: UIViewController {
     @IBOutlet weak var buttonOutletAddClientToOrder: UIButton!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
+    @IBOutlet weak var textFieldEmail: UITextField!
+    @IBOutlet weak var textFieldAddress: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class DetailsOfClientVC: UIViewController {
         // Do any additional setup after loading the view.
         textFieldName.text = clientDetail[Client.nameClient.rawValue] as? String
         textFieldPhoneNumber.text = clientDetail[Client.phoneNumberClient.rawValue] as? String
+        textFieldEmail.text = clientDetail[Client.email.rawValue] as? String
+        textFieldAddress.text = clientDetail[Client.address.rawValue] as? String
         
         buttonOutletAddClientToOrder.isHidden = true
         visibleButtonAddClient()
@@ -35,6 +39,8 @@ class DetailsOfClientVC: UIViewController {
     @IBAction func saveClient(_ sender: Any) {
         clientDetail[Client.nameClient.rawValue] = textFieldName.text ?? clientDetail[Client.nameClient.rawValue]
         clientDetail[Client.phoneNumberClient.rawValue] = textFieldPhoneNumber.text ?? clientDetail[Client.phoneNumberClient.rawValue]
+        clientDetail[Client.email.rawValue] = textFieldEmail.text ?? clientDetail[Client.email.rawValue]
+        clientDetail[Client.address.rawValue] = textFieldEmail.text ?? clientDetail[Client.address.rawValue]
         clientDetail.saveInBackground()
     }
     

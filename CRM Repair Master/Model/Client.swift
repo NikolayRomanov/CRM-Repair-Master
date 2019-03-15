@@ -13,7 +13,8 @@ enum Client: String {
     case classNameClient = "Client"
     case nameClient = "name"
     case phoneNumberClient = "phoneNumber"
-    
+    case email = "emailAddres"
+    case address = "address"
     // for data output PFUser.current()
     case myClient = "MyClient"
     case relationForKeyClients = "clients"

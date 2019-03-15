@@ -13,13 +13,17 @@ class CreateAndEditClientVC: UIViewController {
     
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
-
+    @IBOutlet weak var textFieldEmail: UITextField!
+    @IBOutlet weak var textFieldAddress: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         textFieldName.delegate = self
         textFieldPhoneNumber.delegate = self
+        textFieldEmail.delegate = self
+        textFieldAddress.delegate = self
     }
     
     @IBAction func createClient(_ sender: Any) {
@@ -35,6 +39,8 @@ class CreateAndEditClientVC: UIViewController {
         let newClient = PFObject.init(className: Client.classNameClient.rawValue)
         newClient[Client.nameClient.rawValue] = textFieldName.text
         newClient[Client.phoneNumberClient.rawValue] = textFieldPhoneNumber.text
+        newClient[Client.email.rawValue] = textFieldEmail.text
+        newClient[Client.address.rawValue] = textFieldAddress.text
         newClient[Client.myClient.rawValue] = PFUser.current()
         newClient.saveInBackground { (success, error) in
             
@@ -54,6 +60,12 @@ extension CreateAndEditClientVC: UITextFieldDelegate {
             textFieldPhoneNumber.becomeFirstResponder()
         }
         if textField == textFieldPhoneNumber {
+            textFieldEmail.becomeFirstResponder()
+        }
+        if textField == textFieldEmail {
+            textFieldAddress.becomeFirstResponder()
+        }
+        if textField == textFieldAddress {
             textField.resignFirstResponder()
         }
         return false
