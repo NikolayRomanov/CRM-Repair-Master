@@ -18,18 +18,24 @@ class CreateNewOrderVC: UIViewController {
     @IBOutlet weak var labelPhoneNumber: UILabel!
     @IBOutlet weak var labelNameClient: UILabel!
     @IBOutlet weak var labelAddress: UILabel!
+    @IBOutlet weak var tabelViewServicesInOrder: UITableView!
+    @IBOutlet weak var textViewComments: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //print("serviceAdd", serviceAdd)
+        
+        tabelViewServicesInOrder.dataSource = self
+        tabelViewServicesInOrder.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addClient()
         addService()
+        tabelViewServicesInOrder.reloadData()
         print("arrayServisec", arrayServisec)
     }
     
@@ -55,14 +61,11 @@ class CreateNewOrderVC: UIViewController {
     }
     
     func creatNewOrder() {
-        addClienToOrder()
-        addServicesToOrder()
-    }
-    
-    func addClienToOrder() {
         let newOrder = PFObject.init(className: Order.classNameOrder.rawValue)
         newOrder[Order.clientInOrder.rawValue] = clientAdd
         newOrder[Order.nameClientOrder.rawValue] = clientAdd[Client.nameClient.rawValue]
+        newOrder[Order.servicesInOrder.rawValue] = arrayServisec
+        newOrder[Order.comments.rawValue] = textViewComments.text
         newOrder[Order.myOrder.rawValue] = PFUser.current()
         newOrder.saveInBackground { (success, error) in
             
@@ -72,10 +75,6 @@ class CreateNewOrderVC: UIViewController {
             user.relation(forKey: Order.relationForKeyOrders.rawValue).add(newOrder)
             user.saveInBackground()
         }
-    }
-    
-    func addServicesToOrder() {
-
     }
 
     @IBAction func rightBarButtonDone(_ sender: Any) {
@@ -116,4 +115,27 @@ class CreateNewOrderVC: UIViewController {
     }
     
 }
+
+extension CreateNewOrderVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayServisec.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath)
+        let objectToDisplay = arrayServisec[indexPath.row]
+        cell.textLabel?.text = objectToDisplay[Services.name.rawValue] as? String
+        cell.detailTextLabel?.text = objectToDisplay[Services.price.rawValue] as? String
+        
+        return cell
+    }
+    
+    
+}
+
+extension CreateNewOrderVC: UITableViewDelegate {
+    
+}
+
+
 

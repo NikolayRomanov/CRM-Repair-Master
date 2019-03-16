@@ -14,6 +14,8 @@ enum Order: String {
     case clientInOrder = "clientInOrder"
     case servicesInOrder = "servicesInOrder"
     case nameClientOrder = "nameClient"
+    case comments = "comments"
+    case statusOrder = "statusOrder"
     
     // for data output PFUser.current()
     case myOrder = "MyOrder"
