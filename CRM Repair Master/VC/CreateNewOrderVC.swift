@@ -13,21 +13,24 @@ class CreateNewOrderVC: UIViewController {
     
     var clientAdd : PFObject!
     var serviceAdd : PFObject!
+    var arrayServisec = [PFObject]()
     
+    @IBOutlet weak var labelPhoneNumber: UILabel!
     @IBOutlet weak var labelNameClient: UILabel!
+    @IBOutlet weak var labelAddress: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print("serviceAdd", serviceAdd)
+        //print("serviceAdd", serviceAdd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addClient()
         addService()
-        print("serviceAdd", serviceAdd)
+        print("arrayServisec", arrayServisec)
     }
     
     func addClient() {
@@ -35,6 +38,9 @@ class CreateNewOrderVC: UIViewController {
             clientAdd = client
             globalClient = nil
             labelNameClient.text = clientAdd[Client.nameClient.rawValue] as? String
+            labelPhoneNumber.text = clientAdd[Client.phoneNumberClient.rawValue] as? String
+            labelAddress.text = clientAdd[Client.address.rawValue] as? String
+            
         }
         else {return}
     }
@@ -42,12 +48,18 @@ class CreateNewOrderVC: UIViewController {
     func addService() {
         if let service = globalService {
             serviceAdd = service
+            arrayServisec.append(serviceAdd)
             globalService = nil
         }
         else {return}
     }
     
     func creatNewOrder() {
+        addClienToOrder()
+        addServicesToOrder()
+    }
+    
+    func addClienToOrder() {
         let newOrder = PFObject.init(className: Order.classNameOrder.rawValue)
         newOrder[Order.clientInOrder.rawValue] = clientAdd
         newOrder[Order.nameClientOrder.rawValue] = clientAdd[Client.nameClient.rawValue]
@@ -60,6 +72,10 @@ class CreateNewOrderVC: UIViewController {
             user.relation(forKey: Order.relationForKeyOrders.rawValue).add(newOrder)
             user.saveInBackground()
         }
+    }
+    
+    func addServicesToOrder() {
+
     }
 
     @IBAction func rightBarButtonDone(_ sender: Any) {

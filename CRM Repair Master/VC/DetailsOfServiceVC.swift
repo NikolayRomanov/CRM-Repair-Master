@@ -25,7 +25,7 @@ class DetailsOfServiceVC: UIViewController {
         buttonAddServiceToOrder.isHidden = true
         visibleButtonAddService()
         // Do any additional setup after loading the view.
-        print("objectService", objectService)
+        //print("objectService", objectService)
     }
     
     func dataToDisplayVC() {

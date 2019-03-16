@@ -12,6 +12,7 @@ import Parse
 enum Order: String {
     case classNameOrder = "Order"
     case clientInOrder = "clientInOrder"
+    case servicesInOrder = "servicesInOrder"
     case nameClientOrder = "nameClient"
     
     // for data output PFUser.current()
