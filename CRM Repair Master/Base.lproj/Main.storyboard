@@ -290,15 +290,18 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status Order:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbb-tB-hPh">
-                                <rect key="frame" x="138" y="75" width="103" height="21"/>
+                                <rect key="frame" x="125" y="76" width="103" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fTA-2Y-ts3">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fTA-2Y-ts3">
                                 <rect key="frame" x="257" y="76" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="statusOrder:" destination="SX7-Kn-6Z3" eventType="valueChanged" id="5iI-ZE-1EG"/>
+                                </connections>
                             </switch>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Comments..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jzi-Bt-gak">
                                 <rect key="frame" x="0.0" y="482" width="320" height="74"/>
@@ -307,15 +310,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-c6-oQx">
-                                <rect key="frame" x="29" y="81" width="36" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="new" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybt-Tk-84Y">
-                                <rect key="frame" x="168" y="97" width="32" height="21"/>
+                                <rect key="frame" x="125" y="100" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -323,6 +319,13 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-hO-OCr">
                                 <rect key="frame" x="125" y="229" width="66" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2n-c6-oQx">
+                                <rect key="frame" x="7" y="81" width="110" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -346,8 +349,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="labelAddress" destination="sn1-1l-8ET" id="a9j-2U-Mey"/>
+                        <outlet property="labelDateNow" destination="v2n-c6-oQx" id="8PQ-Q0-fmH"/>
                         <outlet property="labelNameClient" destination="N1P-fm-0LW" id="SQQ-Xc-dCQ"/>
                         <outlet property="labelPhoneNumber" destination="2ml-YG-GRJ" id="7nU-yu-yHL"/>
+                        <outlet property="labelStatusOrder" destination="ybt-Tk-84Y" id="cJH-JW-yUQ"/>
+                        <outlet property="switchStatus" destination="fTA-2Y-ts3" id="bif-Xy-n9t"/>
                         <outlet property="tabelViewServicesInOrder" destination="7xN-Uq-Azs" id="8SU-x2-roJ"/>
                         <outlet property="textViewComments" destination="jzi-Bt-gak" id="Cj7-jl-uW5"/>
                         <segue destination="bUF-tf-4PP" kind="presentation" identifier="addClientToOrder" id="3n6-1J-wXJ"/>

@@ -14,18 +14,24 @@ class CreateNewOrderVC: UIViewController {
     var clientAdd : PFObject!
     var serviceAdd : PFObject!
     var arrayServisec = [PFObject]()
+    var statusOrder = false
     
     @IBOutlet weak var labelPhoneNumber: UILabel!
     @IBOutlet weak var labelNameClient: UILabel!
     @IBOutlet weak var labelAddress: UILabel!
     @IBOutlet weak var tabelViewServicesInOrder: UITableView!
     @IBOutlet weak var textViewComments: UITextView!
+    @IBOutlet weak var switchStatus: UISwitch!
+    @IBOutlet weak var labelStatusOrder: UILabel!
+    @IBOutlet weak var labelDateNow: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //print("serviceAdd", serviceAdd)
+        changeStatusOrder()
+        dateNow()
         
         tabelViewServicesInOrder.dataSource = self
         tabelViewServicesInOrder.delegate = self
@@ -37,6 +43,25 @@ class CreateNewOrderVC: UIViewController {
         addService()
         tabelViewServicesInOrder.reloadData()
         print("arrayServisec", arrayServisec)
+    }
+    
+    func dateNow() {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        labelDateNow.text = result
+    }
+    
+    func  changeStatusOrder() {
+        if switchStatus.isOn {
+            labelStatusOrder.text = "done"
+            statusOrder = true
+        }
+        else {
+            labelStatusOrder.text = "need to perform"
+            statusOrder = false
+        }
     }
     
     func addClient() {
@@ -65,6 +90,7 @@ class CreateNewOrderVC: UIViewController {
         newOrder[Order.clientInOrder.rawValue] = clientAdd
         newOrder[Order.nameClientOrder.rawValue] = clientAdd[Client.nameClient.rawValue]
         newOrder[Order.servicesInOrder.rawValue] = arrayServisec
+        newOrder[Order.statusOrder.rawValue] = statusOrder
         newOrder[Order.comments.rawValue] = textViewComments.text
         newOrder[Order.myOrder.rawValue] = PFUser.current()
         newOrder.saveInBackground { (success, error) in
@@ -76,7 +102,11 @@ class CreateNewOrderVC: UIViewController {
             user.saveInBackground()
         }
     }
-
+    
+    @IBAction func statusOrder(_ sender: Any) {
+        changeStatusOrder()
+    }
+    
     @IBAction func rightBarButtonDone(_ sender: Any) {
         creatNewOrder()
         dismiss(animated: true, completion: nil)
