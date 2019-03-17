@@ -59,6 +59,19 @@ extension MyOrderVC: UITableViewDataSource {
 }
 
 extension MyOrderVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let order = objectOrders[indexPath.row]
+        performSegue(withIdentifier: "showDetailsOrder", sender: order)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailsOrder" {
+            if let detailsVC = segue.destination as? DetailsOfOrderVC {
+                if let senderOrder = sender as? PFObject {
+                    detailsVC.order = senderOrder
+                }
+            }
+        }
+    }
 }
 

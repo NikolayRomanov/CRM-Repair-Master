@@ -44,7 +44,7 @@ class DetailsOfClientVC: UIViewController {
         clientDetail[Client.nameClient.rawValue] = textFieldName.text ?? clientDetail[Client.nameClient.rawValue]
         clientDetail[Client.phoneNumberClient.rawValue] = textFieldPhoneNumber.text ?? clientDetail[Client.phoneNumberClient.rawValue]
         clientDetail[Client.email.rawValue] = textFieldEmail.text ?? clientDetail[Client.email.rawValue]
-        clientDetail[Client.address.rawValue] = textFieldEmail.text ?? clientDetail[Client.address.rawValue]
+        clientDetail[Client.address.rawValue] = textFieldAddress.text ?? clientDetail[Client.address.rawValue]
         clientDetail.saveInBackground()
     }
     
