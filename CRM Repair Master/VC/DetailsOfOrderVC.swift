@@ -14,6 +14,8 @@ class DetailsOfOrderVC: UIViewController {
     var order : PFObject!
     var objectServices = [PFObject]()
     var statusOrder : Bool!
+    var changeObjectServices = true
+    var serviceAdd : PFObject!
     
     @IBOutlet weak var labelDateCreateOrder: UILabel!
     @IBOutlet weak var switchStatusOrder: UISwitch!
@@ -35,6 +37,8 @@ class DetailsOfOrderVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         objectToDisplay()
+        addService()
+        tableViewServices.reloadData()
     }
     
     func dateToDisplay() -> String {
@@ -60,15 +64,21 @@ class DetailsOfOrderVC: UIViewController {
     }
     
     func parsingObjectSrevisec() {
-        let arrayObj = order[Order.servicesInOrder.rawValue] as? [PFObject] ?? [PFObject]()
-        for i in arrayObj {
-            let query = PFQuery(className: Services.classNameServices.rawValue)
-            query.getObjectInBackground(withId: i.objectId!) { (optionalServise, error) in
-                if let realService = optionalServise {
-                    self.objectServices.append(realService)
-                    self.tableViewServices.reloadData()
+        if changeObjectServices {
+            let arrayObj = order[Order.servicesInOrder.rawValue] as? [PFObject] ?? [PFObject]()
+            for i in arrayObj {
+                let query = PFQuery(className: Services.classNameServices.rawValue)
+                query.getObjectInBackground(withId: i.objectId!) { (optionalServise, error) in
+                    if let realService = optionalServise {
+                        self.objectServices.append(realService)
+                        self.tableViewServices.reloadData()
+                    }
                 }
             }
+            changeObjectServices = false
+        }
+        else {
+            return
         }
     }
     
@@ -94,14 +104,39 @@ class DetailsOfOrderVC: UIViewController {
         }
     }
     
+    func addService() {
+        if let service = globalService {
+            serviceAdd = service
+            objectServices.append(serviceAdd)
+            globalService = nil
+        }
+        else {return}
+    }
+    
     func saveOrder() {
         order[Order.statusOrder.rawValue] = statusOrder ?? order[Order.statusOrder.rawValue]
         order[Order.comments.rawValue] = textViewComments.text
+        order[Order.servicesInOrder.rawValue] = objectServices
         order.saveInBackground()
     }
     
     @IBAction func switchStatusOrder(_ sender: Any) {
         changeStatusOrder()
+    }
+    
+    @IBAction func buttonAddService(_ sender: Any) {
+        let addServicesVC = true
+        performSegue(withIdentifier: "presentAddServices", sender: addServicesVC)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "presentAddServices" {
+            if let myServicesVC = (segue.destination as? UINavigationController)?.topViewController as? MyServicesVC {
+                if let senderAddServiceVC = sender as? Bool {
+                    myServicesVC.addServices = senderAddServiceVC
+                }
+            }
+        }
     }
     
     @IBAction func barButtonSave(_ sender: Any) {

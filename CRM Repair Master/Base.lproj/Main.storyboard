@@ -207,6 +207,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Service"/>
                                 <connections>
+                                    <action selector="buttonAddService:" destination="sAe-k2-OXv" eventType="touchUpInside" id="WY6-3r-nD6"/>
                                     <action selector="buttonAddServices:" destination="SX7-Kn-6Z3" eventType="touchUpInside" id="H7l-Ji-a8j"/>
                                 </connections>
                             </button>
@@ -296,6 +297,7 @@
                         <outlet property="switchStatusOrder" destination="5XB-c0-ppQ" id="tXj-0H-unk"/>
                         <outlet property="tableViewServices" destination="kSj-x8-ebu" id="8dp-4s-7CH"/>
                         <outlet property="textViewComments" destination="EGA-AY-LKp" id="7zf-Ix-fDr"/>
+                        <segue destination="8SG-HN-CaP" kind="presentation" identifier="presentAddServices" id="5OL-PK-Z77"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="217-7I-ThD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -951,6 +953,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5OL-PK-Z77"/>
         <segue reference="2Va-r1-zkc"/>
         <segue reference="jmy-Op-xep"/>
     </inferredMetricsTieBreakers>
