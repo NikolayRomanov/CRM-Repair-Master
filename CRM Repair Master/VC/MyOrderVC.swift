@@ -53,7 +53,12 @@ extension MyOrderVC: UITableViewDataSource {
         post.fetchIfNeededInBackground { (post: PFObject?, error: Error?) in
             let nameClientObject = post?[Client.nameClient.rawValue] as? String
             cell.textLabel?.text = nameClientObject
-        }        
+        }
+        let dateCreate = object.createdAt
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: dateCreate ?? Date())
+        cell.detailTextLabel?.text = result
         return cell
     }
 }
