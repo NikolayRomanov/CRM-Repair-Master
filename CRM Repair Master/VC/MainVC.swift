@@ -13,6 +13,7 @@ class MainVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        UIColourScheme.instance.set(for: self)
         if PFUser.current() == nil {
             let logInButton = UIBarButtonItem(title: "Login",
                                               style: .plain,

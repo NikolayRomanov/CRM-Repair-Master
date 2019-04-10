@@ -16,6 +16,8 @@
 		FA270BE8222C6991000E77C8 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA270BE7222C6991000E77C8 /* MainVC.swift */; };
 		FA270BEA222DAC74000E77C8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA270BE9222DAC74000E77C8 /* Order.swift */; };
 		FA2A7E1A223C0556005CE185 /* DetailsOfServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A7E19223C0556005CE185 /* DetailsOfServiceVC.swift */; };
+		FA40AC2B224A82DC0063C9B8 /* ViewOrderDateAndStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40AC2A224A82DC0063C9B8 /* ViewOrderDateAndStatus.swift */; };
+		FA40AC2D224A83120063C9B8 /* ViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40AC2C224A83120063C9B8 /* ViewBackground.swift */; };
 		FA97416C222296FF0089D5A6 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97416B222296FF0089D5A6 /* Client.swift */; };
 		FA9741722222EB4F0089D5A6 /* CreateAndEditClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */; };
 		FA9741742222F7010089D5A6 /* DetailsOfClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */; };
@@ -41,6 +43,8 @@
 		FA270BE7222C6991000E77C8 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		FA270BE9222DAC74000E77C8 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		FA2A7E19223C0556005CE185 /* DetailsOfServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOfServiceVC.swift; sourceTree = "<group>"; };
+		FA40AC2A224A82DC0063C9B8 /* ViewOrderDateAndStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderDateAndStatus.swift; sourceTree = "<group>"; };
+		FA40AC2C224A83120063C9B8 /* ViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackground.swift; sourceTree = "<group>"; };
 		FA97416B222296FF0089D5A6 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		FA9741712222EB4F0089D5A6 /* CreateAndEditClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndEditClientVC.swift; sourceTree = "<group>"; };
 		FA9741732222F7010089D5A6 /* DetailsOfClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOfClientVC.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 		FA974168222296840089D5A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA40AC2A224A82DC0063C9B8 /* ViewOrderDateAndStatus.swift */,
+				FA40AC2C224A83120063C9B8 /* ViewBackground.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,8 +283,10 @@
 				FA270BE8222C6991000E77C8 /* MainVC.swift in Sources */,
 				FA270BEA222DAC74000E77C8 /* Order.swift in Sources */,
 				FACCC0392226F4A500B1B020 /* DetailsOfOrderVC.swift in Sources */,
+				FA40AC2B224A82DC0063C9B8 /* ViewOrderDateAndStatus.swift in Sources */,
 				FA119EA6221A00860062BFFE /* MyClientsVC.swift in Sources */,
 				FACCC03B2226F57C00B1B020 /* CreateNewOrderVC.swift in Sources */,
+				FA40AC2D224A83120063C9B8 /* ViewBackground.swift in Sources */,
 				FAFD9A8B223839E9003C2C7E /* MyServicesVC.swift in Sources */,
 				FA119EA4221A00860062BFFE /* AppDelegate.swift in Sources */,
 				FA9741742222F7010089D5A6 /* DetailsOfClientVC.swift in Sources */,

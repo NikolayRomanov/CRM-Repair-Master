@@ -9,13 +9,15 @@
 import UIKit
 import Parse
 
-class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var identifierVCaddClient = false
     var objectClients = [PFObject]()
+    var searchClients = [PFObject]()
 
     @IBOutlet weak var navigationItemMyClients: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +46,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 self.objectClients = realObjects
+                self.searchClients = self.objectClients
                // print("print objectClients",objectClients)
                 self.tableView.reloadData()
             }
@@ -50,12 +54,13 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objectClients.count
+        return searchClients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellClinet", for: indexPath)
-        let objectToDisplay = objectClients[indexPath.row]
+        searchClients.reverse()
+        let objectToDisplay = searchClients[indexPath.row]
         cell.textLabel?.text = objectToDisplay[Client.nameClient.rawValue] as? String
         cell.detailTextLabel?.text = objectToDisplay[Client.phoneNumberClient.rawValue] as? String
         
@@ -63,7 +68,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let client = objectClients[indexPath.item]
+        let client = searchClients[indexPath.item]
         performSegue(withIdentifier: "showDetailOfClient", sender: client)
     }
     
@@ -95,6 +100,25 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @objc func cancelDismiss() {
         dismiss(animated: true, completion: nil)
     }
+    
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            searchClients = objectClients
+            tableView.reloadData()
+            return
+        }
+        searchClients = objectClients.filter({ client -> Bool in
+            if let name = client[Client.nameClient.rawValue] as? String {
+                return name.contains(searchText)
+            }
+            else {
+                return false
+            }
+        })
+        tableView.reloadData()
+    }
+    
     
 }
 

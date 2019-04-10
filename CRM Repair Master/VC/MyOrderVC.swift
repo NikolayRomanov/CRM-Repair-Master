@@ -16,6 +16,7 @@ class MyOrderVC: UIViewController {
     @IBOutlet weak var tableViewOrders: UITableView!
     
     override func viewDidLoad() {
+//        UIColourScheme.instance.set(for: self)
         super.viewDidLoad()
         
         tableViewOrders.dataSource = self
@@ -48,6 +49,7 @@ extension MyOrderVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOrders.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath)
+        objectOrders.reverse()
         let object = objectOrders[indexPath.row]
         let post = object[Order.clientInOrder.rawValue] as! PFObject
         post.fetchIfNeededInBackground { (post: PFObject?, error: Error?) in
