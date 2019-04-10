@@ -12,8 +12,6 @@ class ViewBackground: UIView {
 
     @IBOutlet weak var ViewBlockDateAndStatus: ViewBackground!
     
-    
-    
 }
 
 /*class UIColourScheme {

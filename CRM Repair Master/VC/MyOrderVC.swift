@@ -9,11 +9,13 @@
 import UIKit
 import Parse
 
-class MyOrderVC: UIViewController {
+class MyOrderVC: UIViewController, UISearchBarDelegate {
 
     var objectOrders = [PFObject]()
+    var searchObjectOrders = [PFObject]()
     
     @IBOutlet weak var tableViewOrders: UITableView!
+    @IBOutlet weak var searchBarOrder: UISearchBar!
     
     override func viewDidLoad() {
 //        UIColourScheme.instance.set(for: self)
@@ -21,6 +23,7 @@ class MyOrderVC: UIViewController {
         
         tableViewOrders.dataSource = self
         tableViewOrders.delegate = self
+        searchBarOrder.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,23 +37,42 @@ class MyOrderVC: UIViewController {
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 self.objectOrders = realObjects
+                self.searchObjectOrders = self.objectOrders
                 //print("print objectClients",objectOrders)
                 self.tableViewOrders.reloadData()
             }
         }
     }
     
+    // Search Bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            searchObjectOrders = objectOrders
+            tableViewOrders.reloadData()
+            return
+        }
+        searchObjectOrders = objectOrders.filter({ order -> Bool in
+            if let name = order[Order.nameClientOrder.rawValue] as? String {
+                return name.contains(searchText)
+            }
+            else {
+                return false
+            }
+        })
+        tableViewOrders.reloadData()
+    }
+    
 }
 
 extension MyOrderVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objectOrders.count
+        return searchObjectOrders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOrders.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath)
-        objectOrders.reverse()
-        let object = objectOrders[indexPath.row]
+        searchObjectOrders.reverse()
+        let object = searchObjectOrders[indexPath.row]
         let post = object[Order.clientInOrder.rawValue] as! PFObject
         post.fetchIfNeededInBackground { (post: PFObject?, error: Error?) in
             let nameClientObject = post?[Client.nameClient.rawValue] as? String

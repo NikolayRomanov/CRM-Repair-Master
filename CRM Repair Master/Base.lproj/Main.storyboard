@@ -197,6 +197,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBarOrder" destination="8HL-Z7-qaA" id="oLy-WX-Lzz"/>
                         <outlet property="tableViewOrders" destination="srz-si-Ar0" id="J23-fg-pHe"/>
                         <segue destination="sAe-k2-OXv" kind="show" identifier="showDetailsOrder" id="fSi-aq-YrJ"/>
                     </connections>
@@ -213,7 +214,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxB-Xb-jWq" customClass="ViewBackground" customModule="CRM_Repair_Master" customModuleProvider="target">
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxB-Xb-jWq" customClass="ViewBackground" customModule="CRM_Repair_Master" customModuleProvider="target">
                                 <rect key="frame" x="7" y="70" width="306" height="65"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5XB-c0-ppQ">
