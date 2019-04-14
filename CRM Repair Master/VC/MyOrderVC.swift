@@ -13,9 +13,11 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
 
     var objectOrders = [PFObject]()
     var searchObjectOrders = [PFObject]()
+    var filterObjectStatus = [PFObject]()
     
     @IBOutlet weak var tableViewOrders: UITableView!
     @IBOutlet weak var searchBarOrder: UISearchBar!
+    @IBOutlet weak var segmentStatus: UISegmentedControl!
     
     override func viewDidLoad() {
 //        UIColourScheme.instance.set(for: self)
@@ -41,6 +43,42 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
                 //print("print objectClients",objectOrders)
                 self.tableViewOrders.reloadData()
             }
+        }
+    }
+    
+    @IBAction func segmentStatus(_ sender: Any) {
+        let getIndex = segmentStatus.selectedSegmentIndex
+        print("getIndex", getIndex)
+        
+        switch getIndex {
+        case 0:
+            searchObjectOrders = objectOrders
+            print("searchObjectOrders", searchObjectOrders.count)
+            tableViewOrders.reloadData()
+        case 1:
+            searchObjectOrders = objectOrders.filter({ (order) -> Bool in
+                if order[Order.statusOrder.rawValue] as? Bool == false {
+                    return true
+                }
+                else {
+                    return false
+                }
+            })
+            print("searchObjectOrders", searchObjectOrders.count)
+            tableViewOrders.reloadData()
+        case 2:
+            searchObjectOrders = objectOrders.filter({ (order) -> Bool in
+                if order[Order.statusOrder.rawValue] as? Bool == true {
+                    return true
+                }
+                else {
+                    return false
+                }
+            })
+            print("searchObjectOrders", searchObjectOrders.count)
+            tableViewOrders.reloadData()
+        default:
+            print("No selected Status")
         }
     }
     
@@ -71,7 +109,7 @@ extension MyOrderVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOrders.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath)
-        searchObjectOrders.reverse()
+        //searchObjectOrders.reverse()
         let object = searchObjectOrders[indexPath.row]
         let post = object[Order.clientInOrder.rawValue] as! PFObject
         post.fetchIfNeededInBackground { (post: PFObject?, error: Error?) in
@@ -89,7 +127,7 @@ extension MyOrderVC: UITableViewDataSource {
 
 extension MyOrderVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let order = objectOrders[indexPath.row]
+        let order = searchObjectOrders[indexPath.row]
         performSegue(withIdentifier: "showDetailsOrder", sender: order)
     }
     

@@ -59,7 +59,7 @@ class MyClientsVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellClinet", for: indexPath)
-        searchClients.reverse()
+        //searchClients.reverse()
         let objectToDisplay = searchClients[indexPath.row]
         cell.textLabel?.text = objectToDisplay[Client.nameClient.rawValue] as? String
         cell.detailTextLabel?.text = objectToDisplay[Client.phoneNumberClient.rawValue] as? String
