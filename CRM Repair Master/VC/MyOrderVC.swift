@@ -15,6 +15,8 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
     var searchObjectOrders = [PFObject]()
     var filterObjectStatus = [PFObject]()
     
+    typealias EmptyClosure = (() -> Void)
+    
     @IBOutlet weak var tableViewOrders: UITableView!
     @IBOutlet weak var searchBarOrder: UISearchBar!
     @IBOutlet weak var segmentStatus: UISegmentedControl!
@@ -26,14 +28,26 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
         tableViewOrders.dataSource = self
         tableViewOrders.delegate = self
         searchBarOrder.delegate = self
+        //reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadData()
+        //reloadData()
+        reloadData {
+            self.reloadStatusFilter()
+        }
     }
     
-    private func reloadData() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let statusOrderFilter = segmentStatus.selectedSegmentIndex
+        UserDefaults.standard.set(statusOrderFilter, forKey: "StatusFilter")
+        print("statusOrderFilter in viewWillDisappear", statusOrderFilter)
+    }
+    
+    private func reloadData(completion: EmptyClosure? = nil) {
         let query = PFQuery.init(className: Order.classNameOrder.rawValue)
         query.whereKeyExists(Order.myOrder.rawValue)
         query.findObjectsInBackground { (optionalObjects, error) in
@@ -42,11 +56,16 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
                 self.searchObjectOrders = self.objectOrders
                 //print("print objectClients",objectOrders)
                 self.tableViewOrders.reloadData()
+                completion?()
             }
         }
     }
     
     @IBAction func segmentStatus(_ sender: Any) {
+        filterStatus()
+    }
+    
+    func filterStatus() {
         let getIndex = segmentStatus.selectedSegmentIndex
         print("getIndex", getIndex)
         
@@ -79,6 +98,15 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
             tableViewOrders.reloadData()
         default:
             print("No selected Status")
+        }
+    }
+    
+    func reloadStatusFilter(){
+        if let value = UserDefaults.standard.value(forKey: "StatusFilter") {
+            let selectedIndex = value as! Int
+            segmentStatus.selectedSegmentIndex = selectedIndex
+            filterStatus()
+            print("statusOrderFilter in viewWillAppear", selectedIndex)
         }
     }
     
