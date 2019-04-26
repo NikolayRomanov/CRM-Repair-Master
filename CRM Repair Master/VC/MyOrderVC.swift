@@ -53,7 +53,7 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
         query.findObjectsInBackground { (optionalObjects, error) in
             if let realObjects = optionalObjects {
                 self.objectOrders = realObjects
-                self.searchObjectOrders = self.objectOrders
+                //self.searchObjectOrders = self.objectOrders
                 //print("print objectClients",objectOrders)
                 self.tableViewOrders.reloadData()
                 completion?()
@@ -71,11 +71,12 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
         
         switch getIndex {
         case 0:
-            searchObjectOrders = objectOrders
-            print("searchObjectOrders", searchObjectOrders.count)
+            filterObjectStatus = objectOrders
+            searchObjectOrders = filterObjectStatus
+            print("filterObjectStatus", filterObjectStatus.count)
             tableViewOrders.reloadData()
         case 1:
-            searchObjectOrders = objectOrders.filter({ (order) -> Bool in
+            filterObjectStatus = objectOrders.filter({ (order) -> Bool in
                 if order[Order.statusOrder.rawValue] as? Bool == false {
                     return true
                 }
@@ -83,10 +84,11 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
                     return false
                 }
             })
-            print("searchObjectOrders", searchObjectOrders.count)
+            print("filterObjectStatus", filterObjectStatus.count)
+            searchObjectOrders = filterObjectStatus
             tableViewOrders.reloadData()
         case 2:
-            searchObjectOrders = objectOrders.filter({ (order) -> Bool in
+            filterObjectStatus = objectOrders.filter({ (order) -> Bool in
                 if order[Order.statusOrder.rawValue] as? Bool == true {
                     return true
                 }
@@ -94,7 +96,8 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
                     return false
                 }
             })
-            print("searchObjectOrders", searchObjectOrders.count)
+            print("filterObjectStatus", filterObjectStatus.count)
+            searchObjectOrders = filterObjectStatus
             tableViewOrders.reloadData()
         default:
             print("No selected Status")
@@ -113,11 +116,12 @@ class MyOrderVC: UIViewController, UISearchBarDelegate {
     // Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            searchObjectOrders = objectOrders
+            searchObjectOrders = filterObjectStatus
+            print("searchObjectOrders in Search Bar", searchObjectOrders.count)
             tableViewOrders.reloadData()
             return
         }
-        searchObjectOrders = objectOrders.filter({ order -> Bool in
+        searchObjectOrders = filterObjectStatus.filter({ order -> Bool in
             if let name = order[Order.nameClientOrder.rawValue] as? String {
                 return name.contains(searchText)
             }
